@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
@@ -48,8 +49,8 @@ public class ListaAsientos {
 		}
 		return false;
 	}
-	
-	
+
+
 	/**
 	 * Funcion que asigna asientos
 	 * @param fila char
@@ -63,14 +64,40 @@ public class ListaAsientos {
 		recalcularVariable();		
 		return true;
 	}
-		
+
+
+	public void imprimir(){
+
+		Iterator<Asiento> i = listaAsientos.iterator();
+
+		while(i.hasNext()){
+
+			Asiento a = i.next();
+			System.out.println("Asiento:" + " " + Integer.toString(a.getFila())+" "+a.getNumero());
+
+		}
+	}
+
+	public void RemoverAsiento(char fila, int numero){
+
+		for(Asiento a: listaAsientos){
+
+			if(a.getFila()== fila && a.getNumero()== numero){
+
+				listaAsientos.remove(a);
+				return;
+			}
+		}
+	}
+
+
 	private void recalcularVariable() {
 		// en base a cualquier cambio de los valores recalcula los subtotales
 		this.total = filas * columnas;
 		this.ocupados = this.listaAsientos.size();
 		this.disponibles = this.total - this.ocupados;
 	}
-	
+
 	/**
 	 * Getters and Setters
 	 */

@@ -7,17 +7,19 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		// Controla la salas existentes
+		// COntrola la salas existentes
 		ArrayList<Sala> salas = new ArrayList<Sala>();
 		//
-		
+
 		Sala sala = new Sala();
 		sala.setNumSala(1);
-		
+
 		ListaAsientos asientosSala1 = new ListaAsientos();
 		asientosSala1.setColumnas(15);
 		asientosSala1.setFilas(8);
-		
+
+		System.out.println(asientosSala1.getDisponibles());
+
 		if (!asientosSala1.AsignarAsiento('h', 3)) {
 			System.out.println("ya existe el asiento");
 		}
@@ -41,8 +43,5 @@ public class Principal {
 		// 2017 08 05
 		// sala 1, 9h10 a 11h00
 		
-		
-		
 	}
-
 }
