@@ -8,7 +8,7 @@ public class Sala {
 
 	private int numSala;
 	private int [][]asientos;
-	private ArrayList<Horario> listaHorarios;
+	private ArrayList<HorarioSala> listaHorarios;
 
 	/**
 	 * Constructor  
@@ -25,7 +25,7 @@ public class Sala {
 	 * @param vasientos vector para seleccion de asiento
 	 * @param listaHorarios horario de la sala 
 	 */
-	public Sala(int vnumSala,int [][]vasientos, ArrayList<Horario> listaHorarios) {
+	public Sala(int vnumSala,int [][]vasientos, ArrayList<HorarioSala> listaHorarios) {
 
 		this.numSala=vnumSala;
 		this.asientos=vasientos;
@@ -123,11 +123,11 @@ public class Sala {
 		this.asientos = vasientos;
 	}
 
-	public ArrayList<Horario> getListaHorarios() {
+	public ArrayList<HorarioSala> getListaHorarios() {
 		return listaHorarios;
 	}
 
-	public void setListaHorarios(ArrayList<Horario> listaHorarios) {
+	public void setListaHorarios(ArrayList<HorarioSala> listaHorarios) {
 		this.listaHorarios = listaHorarios;
 	}
 }
