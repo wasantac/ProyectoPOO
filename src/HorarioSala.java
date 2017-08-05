@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
- * Clase Pelicula la cual crea objetos del tipo Pelicula.
+ * Clase HorarioSala la cual crea objetos del tipo HorarioSala.
  */
 public class HorarioSala {
 

@@ -19,7 +19,7 @@ public class Pelicula {
 	public Pelicula(){
 
 		this.nombre= null;
-		this.salas= 0;
+		this.salas= null;
 		this.minutos= 0;
 		this.idioma= null;
 		this.censura= null;
@@ -36,7 +36,7 @@ public class Pelicula {
 	 * @param vcensura String censura pelicula 
 	 * @param vformato String formato de pelicula
 	 */
-	public Pelicula(String vnombre,ArrayList<Horario>  vhorario,ArrayList<Sala> vsala,int vminutos,String vidioma,String vcensura,String vformato){
+	public Pelicula(String vnombre,ArrayList<HorarioSala>  vhorario,ArrayList<Sala> vsala,int vminutos,String vidioma,String vcensura,String vformato){
 
 		this.nombre=vnombre;
 		this.salas=vsala;
@@ -58,6 +58,9 @@ public class Pelicula {
 		}
 	}*/
 
+	/**
+	 * Funcion que ve las salas disponibles
+	 */
 	public void salas(){
 		int indice=0;
 		System.out.println("Salas disponibles");
@@ -68,7 +71,6 @@ public class Pelicula {
 		}
 		System.out.println(" ");
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
@@ -92,11 +94,11 @@ public class Pelicula {
 		this.nombre = vnombre;
 	}
 
-	public ArrayList<Horario> getHorarios() {
-		return new ArrayList<Horario>();
+	public ArrayList<HorarioSala> getHorarios() {
+		return new ArrayList<HorarioSala>();
 	}
 
-	public void setHorarios(ArrayList<Horario> horarios) {
+	public void setHorarios(ArrayList<HorarioSala> horarios) {
 	}
 
 	public ArrayList<Sala> getSalas() {
