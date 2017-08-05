@@ -12,7 +12,7 @@ public class Asiento {
 	 */
 	public Asiento(){
 
-		this.fila = null;
+		this.fila = ' ';
 		this.numero = 0;
 	}
 

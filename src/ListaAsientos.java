@@ -40,19 +40,6 @@ public class ListaAsientos {
 		this.columnas = columnas;
 	}
 
-	/**
-	 * Funcion que cuenta los asientos. (No la creo necesaria) 
-	 */
-	public void asientos(){
-
-		int i,j;
-		for (i=0;i<asientos.length;i++){
-			for(j=0;j<asientos.length;j++){
-				asientos[i][j]=0;
-			}
-		}
-	}
-
 	public boolean AsientoAsignado(char fila, int numero) {
 		for (Asiento a: listaAsientos) {
 			if(a.getFila() == fila && a.getNumero() == numero) {
@@ -64,7 +51,7 @@ public class ListaAsientos {
 	
 	
 	/**
-	 * Funcion que asigna asientos (lo crea si aun no existe)
+	 * Funcion que asigna asientos
 	 * @param fila char
 	 * @param columna int
 	 */
@@ -76,42 +63,7 @@ public class ListaAsientos {
 		recalcularVariable();		
 		return true;
 	}
-	
-	/**
-	 * Funcion que muestra los asientos a los clientes.
-	 */
-	public void mostrarAsientos(){
-		int cont=0,i,j;
-		System.out.println("Sala: "+this.getNumSala());
-		for(i=0;i<asientos.length;i++){
-			if(i==0){
-				System.out.print("   "+(i+1));
-			}else{
-				System.out.print("  "+(i+1));
-			}
-
-		}
-		System.out.println("");
-		for (i=0;i<asientos.length;i++){
-			System.out.print((char)(65+i)+"-");
-			for(j=0;j<asientos.length;j++){
-				if(asientos[i][j]==0){
-					System.out.print("[ ]");
-				}else{
-					System.out.print("[X]");
-				}
-				if(asientos[i][j]==1){
-					cont=cont+1;
-				}
-			}
-			System.out.println();
-			/*if (cont==asientos.length*asientos.length){
-				System.out.println("ya no existen asientos disponibles");
-				break;
-			}*/
-		}
-	}
-	
+		
 	private void recalcularVariable() {
 		// en base a cualquier cambio de los valores recalcula los subtotales
 		this.total = filas * columnas;
