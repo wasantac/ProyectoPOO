@@ -8,8 +8,7 @@ public class Sala {
 
 	private int numSala;
 	private ListaAsientos asientos;
-	private ArrayList<HorarioSala> listaHorarios;
-
+	
 	/**
 	 * Constructor  
 	 */
@@ -52,11 +51,11 @@ public class Sala {
 	public void setNumSala(int vnumSala) {
 		this.numSala = vnumSala;
 	}
-	public int[][] getAsientos() {
+	public ListaAsientos getAsientos() {
 		return asientos;
 	}
 
-	public void setAsientos(int[][] vasientos) {
+	public void setAsientos(ListaAsientos vasientos) {
 		this.asientos = vasientos;
 	}
 
