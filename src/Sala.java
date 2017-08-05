@@ -8,6 +8,7 @@ public class Sala {
 
 	private int numSala;
 	private ListaAsientos asientos;
+	private FormatoSala formato;
 	
 	/**
 	 * Constructor  
@@ -16,6 +17,7 @@ public class Sala {
 
 		this.numSala= 0;
 		this.asientos = new ListaAsientos();
+		this.formato = new  FormatoSala();
 	}
 
 	/**
@@ -23,22 +25,13 @@ public class Sala {
 	 * @param vasientos vector para seleccion de asiento
 	 * @param listaHorarios horario de la sala 
 	 */
-	public Sala(int vnumSala,ListaAsientos vasientos) {
+	public Sala(int numSala, ListaAsientos asientos, FormatoSala formato) {
 
-		this.numSala=vnumSala;
-		this.asientos=vasientos;
+		this.numSala = numSala;
+		this.asientos = asientos;
+		this.formato = formato;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 * Funcion sobreescrita tipo toString
-	 */
-	@Override
-	public String toString(){
-		return "Sala: "+this.numSala;
-	}
-	
 	/**
 	 * Getters and Setters
 	 */
@@ -55,6 +48,14 @@ public class Sala {
 
 	public void setAsientos(ListaAsientos vasientos) {
 		this.asientos = vasientos;
+	}
+
+	public FormatoSala getFormato() {
+		return formato;
+	}
+
+	public void setFormato(FormatoSala formato) {
+		this.formato = formato;
 	}
 
 }

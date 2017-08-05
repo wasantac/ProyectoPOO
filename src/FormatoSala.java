@@ -12,8 +12,8 @@ public class FormatoSala {
 	 */
 	public FormatoSala(){
 
-		this.formato = null;
-		this.precio = 0;
+		this.formato = "2D";
+		this.precio = 5.50;
 	}
 
 	/**
