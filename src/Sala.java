@@ -9,7 +9,7 @@ public class Sala {
 	private int numSala;
 	private int [][]asientos;
 	private ArrayList<HorarioSala> listaHorarios;
-
+	
 	/**
 	 * Constructor  
 	 */
