@@ -4,7 +4,7 @@
  */
 public class Asiento {
 
-	private String fila;
+	private char fila;
 	private int numero;
 
 	/**
@@ -20,7 +20,7 @@ public class Asiento {
 	 * @param fila String fila
 	 * @param numero int numero
 	 */
-	public Asiento(String fila, int numero) {
+	public Asiento(char fila, int numero) {
 
 		this.fila = fila;
 		this.numero = numero;
@@ -29,10 +29,10 @@ public class Asiento {
 	/**
 	 * Getters and Setters
 	 */
-	public String getFila() {
+	public char getFila() {
 		return fila;
 	}
-	public void setFila(String fila) {
+	public void setFila(char fila) {
 		this.fila = fila;
 	}
 	public int getNumero() {

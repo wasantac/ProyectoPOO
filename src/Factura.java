@@ -5,22 +5,24 @@ import java.util.ArrayList;
 public class Factura {
 
 	private Cliente cliente;
+	private Empleado vendedor;
 	private LocalDateTime fecha; 
 	private double precioTotal;
 	private ArrayList <LineaFactura> lineaFactura;
 	
 	public Factura() {
 		this.cliente = new Cliente();
+		this.vendedor = new Empleado();
 		this.fecha = LocalDateTime.now(); 
 		this.precioTotal = 0.0;
 		this.lineaFactura = new ArrayList <LineaFactura>();
 	}
 	
-	public Factura(Cliente vCliente, LocalDateTime vfecha, double vprecioTotal, ArrayList <LineaFactura> vlineaFactura) {
-		this.cliente = vCliente;
-		this.fecha = vfecha; 
-		this.precioTotal = vprecioTotal;
-		this.lineaFactura = vlineaFactura;
+	public Factura(Cliente Cliente, Empleado vendedor, LocalDateTime fecha, double precioTotal, ArrayList <LineaFactura> lineaFactura) {
+		this.cliente = Cliente;
+		this.fecha = fecha; 
+		this.precioTotal = precioTotal;
+		this.lineaFactura = lineaFactura;
 	}
 	
 	public Cliente getCliente() {
