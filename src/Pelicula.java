@@ -72,7 +72,7 @@ public class Pelicula {
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	 * Funcion sobreescrita
+	 * Funcion sobreescrita tipo toString
 	 */
 	@Override
 	public String toString(){
@@ -81,7 +81,6 @@ public class Pelicula {
 				" \nCensura: "+this.censura+
 				" \nFormato: "+this.formato;
 	}
-
 
 	/**
 	 * Getters and Setters
