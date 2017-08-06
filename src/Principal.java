@@ -3,35 +3,33 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 public class Principal implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private static ArrayList<Sala> salas = new ArrayList<Sala>();
-	private static ArrayList<Factura> facturas = new ArrayList<Factura>();
-	private static ListaPeliculas peliculas = new ListaPeliculas();
-	private static ListadoHorarioSala horarios = new ListadoHorarioSala();
+	static ArrayList<Sala> salas = new ArrayList<Sala>();
+	static ArrayList<Factura> facturas = new ArrayList<Factura>();
+	static ListaPeliculas peliculas = new ListaPeliculas();
+	static ListadoHorarioSala horarios = new ListadoHorarioSala();
 	
 	public static void main(String[] args) {
 
-	    String sFichero = "data.txt";
-	    File fichero = new File(sFichero);
+	    File fichero = new File("data.txt");
 	    
 	    if (!fichero.exists()) {
-	    	CrearFicheroInicial(sFichero);
+	    	CrearFicheroInicial("data.txt");	
 	    }
-	    else {
-	    	
-	    }
+	    //else {
+	    //	leerFicheroInicial(sFichero);
+	    //}
 
-	    // Lectura del archivo
-		
 	}
-
-	private static void CrearFicheroInicial(String nombreArchivo) {
+	    
+	private static void CrearFicheroInicial(String sFichero) {
+		// Lectura del archivo
 
 		// Creacion de las 4 salas
 		Sala sala = new Sala();
@@ -123,6 +121,58 @@ public class Principal implements Serializable {
 		//obj.serializeAddress(address);
 		
 	}
-
+	
+//	public void serializeAddress(Address address) {
+//
+//		FileOutputStream fout = null;
+//		ObjectOutputStream oos = null;
+//
+//		try {
+//
+//			fout = new FileOutputStream("c:\\temp\\address.ser");
+//			oos = new ObjectOutputStream(fout);
+//			oos.writeObject(address);
+//
+//			System.out.println("Done");
+//
+//		} catch (Exception ex) {
+//
+//			ex.printStackTrace();
+//
+//		} finally {
+//
+//			if (fout != null) {
+//				try {
+//					fout.close();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//
+//			if (oos != null) {
+//				try {
+//					oos.close();
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//
+//		}
+//	}
+//
+//	public void serializeAddressJDK7(Address address) {
+//
+//		try (ObjectOutputStream oos =
+//				new ObjectOutputStream(new FileOutputStream("c:\\temp\\address2.ser"))) {
+//
+//			oos.writeObject(address);
+//			System.out.println("Done");
+//
+//		} catch (Exception ex) {
+//			ex.printStackTrace();
+//		}
+//
+//	}	
+		
 }
 
