@@ -25,11 +25,11 @@ public class Cliente {
 	 * @param _dir string 
 	 * @param _tarjeta int
 	 */
-	public Cliente (String _nom, int _id, String _dir, int _tarjeta){
-		this.direcccion= _dir;
-		this.id= _id;
-		this.nombre = _nom;
-		this.tarjeta= _tarjeta;
+	public Cliente(String nombre, int id, String dir, int tarjeta){
+		this.direcccion = dir;
+		this.id = id;
+		this.nombre = nombre;
+		this.tarjeta= tarjeta;
 	}
 
 	/**
@@ -53,10 +53,10 @@ public class Cliente {
 	public void setDirecccion(String direcccion) {
 		this.direcccion = direcccion;
 	}
-	public int getTlf() {
+	public int getTarjeta() {
 		return tarjeta;
 	}
-	public void setTlf(int tlf) {
-		this.tarjeta = tlf;
+	public void setTarjeta(int tarjeta) {
+		this.tarjeta = tarjeta;
 	}
 }

@@ -2,27 +2,28 @@ import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Factura {
+public class Factura{
 
 	private Cliente cliente;
 	private Empleado vendedor;
 	private LocalDateTime fecha; 
 	private double precioTotal;
-	private ArrayList <LineaFactura> lineaFactura;
-	
+	private ListadoLineasFactura listadolineasfactura;
+
 	public Factura() {
 		this.cliente = new Cliente();
 		this.vendedor = new Empleado();
 		this.fecha = LocalDateTime.now(); 
 		this.precioTotal = 0.0;
-		this.lineaFactura = new ArrayList <LineaFactura>();
+		this.listadolineasfactura = new ListadoLineasFactura();
 	}
 	
-	public Factura(Cliente Cliente, Empleado vendedor, LocalDateTime fecha, double precioTotal, ArrayList <LineaFactura> lineaFactura) {
+	public Factura(Cliente Cliente, Empleado vendedor, LocalDateTime fecha, double precioTotal, ListadoLineasFactura listadolineasfactura) {
 		this.cliente = Cliente;
 		this.fecha = fecha; 
 		this.precioTotal = precioTotal;
-		this.lineaFactura = lineaFactura;
+		this.listadolineasfactura = listadolineasfactura;
+		this.vendedor = vendedor;
 	}
 	
 	public Cliente getCliente() {
@@ -48,13 +49,31 @@ public class Factura {
 	public void setPrecioTotal(double precioTotal) {
 		this.precioTotal = precioTotal;
 	}
-
-	public ArrayList<LineaFactura> getLineaFactura() {
-		return lineaFactura;
+	
+	public Empleado getVendedor() {
+		return vendedor;
 	}
 
-	public void setLineasFactura(ArrayList<LineaFactura> lineaFactura) {
-		this.lineaFactura = lineaFactura;
-	}	
+	public void setVendedor(Empleado vendedor) {
+		this.vendedor = vendedor;
+	}
+	
+	public ListadoLineasFactura getListadolineasfactura() {
+		return listadolineasfactura;
+	}
+
+	public void setListadolineasfactura(ListadoLineasFactura listadolineasfactura) {
+		this.listadolineasfactura = listadolineasfactura;
+	}
+	
+	public void AgregarLineaFactura(LineaFactura lineaFactura) {
+		this.listadolineasfactura.AgregarLineaFactura(lineaFactura);
+		this.precioTotal = listadolineasfactura.getTotal();
+	}
+
+	public void RemoverLineaFactura(LineaFactura lineaFactura) {
+		this.listadolineasfactura.RemoverLineaFactura(lineaFactura);
+		this.precioTotal = listadolineasfactura.getTotal();
+	}
 	
 }

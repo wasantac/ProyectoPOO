@@ -24,6 +24,10 @@ public class ListadoHorarioSala {
 		this.listaHorarios = listaHorarios;
 	}
 	
+	public boolean AgregarHorario(HorarioSala horarioSala) {
+		return AgregarHorario(horarioSala.getInicio(), horarioSala.getFin(), horarioSala.getPelicula(), horarioSala.getSala());
+	}
+	
 	public boolean AgregarHorario(LocalDateTime inicio, LocalDateTime fin, Pelicula pelicula, Sala sala) {
 		for (HorarioSala h: listaHorarios) {
 			if(h.getInicio() == inicio && h.getFin() == fin && h.getPelicula() == pelicula && h.getSala() == sala) {

@@ -41,9 +41,9 @@ public class ListaAsientos {
 		this.columnas = columnas;
 	}
 
-	public boolean AsientoAsignado(char fila, int numero) {
+	public boolean AsientoAsignado(Asiento asiento) {
 		for (Asiento a: listaAsientos) {
-			if(a.getFila() == fila && a.getNumero() == numero) {
+			if(a.getFila() == asiento.getFila()&& a.getNumero() == asiento.getNumero()) {
 				return true;
 			}
 		}
@@ -56,15 +56,14 @@ public class ListaAsientos {
 	 * @param fila char
 	 * @param columna int
 	 */
-	public boolean AsignarAsiento(char fila, int numero){
-		if (AsientoAsignado(fila, numero) || disponibles == 0) {
+	public boolean AsignarAsiento(Asiento asiento){
+		if (AsientoAsignado(asiento) || disponibles == 0) {
 			return false;
 		}
-		listaAsientos.add(new Asiento(fila, numero));
+		listaAsientos.add(asiento);
 		recalcularVariable();		
 		return true;
 	}
-
 
 	public void imprimir(){
 
