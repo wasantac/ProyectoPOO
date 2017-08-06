@@ -18,7 +18,7 @@ public class Principal {
 		asientosSala1.setColumnas(15);
 		asientosSala1.setFilas(8);
 
-		System.out.println(asientosSala1.getDisponibles());
+		//System.out.println(asientosSala1.getDisponibles());
 
 		Asiento asiento1 = new Asiento('h',3);
 		
@@ -35,17 +35,32 @@ public class Principal {
 		ListaPeliculas peliculas = new ListaPeliculas();
 		
 		Pelicula pelicula = new Pelicula();
-		pelicula.setNombre("Lo que el viento se llevo");
+		pelicula.setNombre("TRANSFORMERS");
 				
 		ListadoHorarioSala horarios = new ListadoHorarioSala();
 		LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
 		LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
 		HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula, sala);
 		horarios.AgregarHorario(horario1);
-		//horarios.ImprimirHorarioPelicula(pelicula, 2017, Month.AUGUST, 5); 
-		// Lo que el viento se llevo
-		// 2017 08 05
-		// sala 1, 9h10 a 11h00
+
+		LocalDateTime inicio1 = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
+		LocalDateTime fin1 = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 10, 0);
+		LocalDateTime inicio2 = LocalDateTime.of(2017, Month.AUGUST, 6, 12, 10, 0);
+		LocalDateTime fin2 = LocalDateTime.of(2017, Month.AUGUST, 6, 13, 30, 0);
+		LocalDateTime inicio3 = LocalDateTime.of(2017, Month.AUGUST, 7, 20, 10, 0);
+		LocalDateTime fin3 = LocalDateTime.of(2017, Month.AUGUST, 7, 11, 22, 10);
+		
+		
+		horarios.AgregarHorario(inicio1, fin1, pelicula, sala);
+		horarios.AgregarHorario(inicio2, fin2, pelicula, sala);
+		horarios.AgregarHorario(inicio3, fin3, pelicula, sala);
+	
+		
+		horarios.ImprimirHorarioPelicula(pelicula, 2017, Month.AUGUST, 5); 
+		horarios.ImprimirHorarioPelicula(pelicula, 2017, Month.AUGUST, 6);
+		horarios.ImprimirHorarioPelicula(pelicula, 2017, Month.AUGUST, 7);
+		horarios.ImprimirHorarioPelicula(pelicula, 2017, Month.AUGUST, 8);
+
 		
 		Empleado vendedor1 = new Empleado();
 		vendedor1.setNombre("Ricardo");

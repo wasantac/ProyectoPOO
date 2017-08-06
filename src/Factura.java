@@ -25,7 +25,7 @@ public class Factura{
 		this.listadolineasfactura = listadolineasfactura;
 		this.vendedor = vendedor;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}

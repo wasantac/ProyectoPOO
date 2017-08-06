@@ -30,8 +30,8 @@ public class HorarioSala {
 
 		this.inicio = inicio;
 		this.fin = fin;
-		this.sala = null;
-		this.pelicula = null;
+		this.sala = sala;
+		this.pelicula = pelicula;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class HorarioSala {
 	}
 
 	public Sala getSala() {
-		return sala;
+		return this.sala;
 	}
 
 	public void setSala(Sala sala) {
