@@ -55,7 +55,7 @@ public class ListadoHorarioSala implements Serializable {
 	}
 
 
-	public void ImprimirHorarioPelicula(Pelicula pelicula, int anio, Month august, int dia){
+	public void ImprimirHorarioPelicula(Pelicula pelicula, int anio, int august, int dia){
 
 		System.out.println(pelicula.getNombre());
 
@@ -67,18 +67,15 @@ public class ListadoHorarioSala implements Serializable {
 
 			if(hs.getInicio().getDayOfMonth() == dia){
 
-				System.out.println("Sala "+hs.getSala().getNumSala()+": "+ String.valueOf(hs.getInicio().getHour()+":"+hs.getInicio().getMinute()+" a "+hs.getFin().getHour()+":"+hs.getFin().getMinute()));
+				
+				System.out.println ("Sala "+hs.getSala().getNumSala()+": "+ String.valueOf(hs.getInicio().getHour()+":"+hs.getInicio().getMinute()+" a "+hs.getFin().getHour()+":"+hs.getFin().getMinute()));
 
 				i++;
 
 			}
 		}	
 
-		if(i!=0){
-
-			System.out.println("Se encontraron al menos 1 resultado");
-
-		}else{
+		if(i==0){
 
 			System.out.println("No se encontraron resultados");
 

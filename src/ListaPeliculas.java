@@ -28,14 +28,27 @@ public class ListaPeliculas implements Serializable {
 
 		listaPeliculas.add(vpelicula);
 	}
-
+	
+	public Pelicula obtenerPelicula(int numeroPelicula){
+		
+	return	listaPeliculas.get(numeroPelicula-1);
+			
+	}
+	
+	
+	
+	
 	/**
 	 * Muestra la cartelera de peliculas
 	 */
 	public void Cartelera(){
-
+		
+		int i=1;
+		
 		for(Pelicula vpelicula:listaPeliculas){
-			System.out.println(vpelicula+"\n");
+			System.out.println(Integer.toString(i) + ") "+ vpelicula+"\n");
+			i++;
+			
 		}
 	}
 }
