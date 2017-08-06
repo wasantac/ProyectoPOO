@@ -9,7 +9,7 @@ public class Factura {
 	private LocalDateTime fecha; 
 	private double precioTotal;
 	private ArrayList <LineaFactura> lineaFactura;
-	
+
 	public Factura() {
 		this.cliente = new Cliente();
 		this.vendedor = new Empleado();
@@ -17,14 +17,14 @@ public class Factura {
 		this.precioTotal = 0.0;
 		this.lineaFactura = new ArrayList <LineaFactura>();
 	}
-	
+
 	public Factura(Cliente Cliente, Empleado vendedor, LocalDateTime fecha, double precioTotal, ArrayList <LineaFactura> lineaFactura) {
 		this.cliente = Cliente;
 		this.fecha = fecha; 
 		this.precioTotal = precioTotal;
 		this.lineaFactura = lineaFactura;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -56,5 +56,4 @@ public class Factura {
 	public void setLineasFactura(ArrayList<LineaFactura> lineaFactura) {
 		this.lineaFactura = lineaFactura;
 	}	
-	
 }
