@@ -54,6 +54,15 @@ public class ListadoHorarioSala implements Serializable {
 		return false;
 	}
 
+	
+	public HorarioSala obtenerHorario(int numeroHorario){
+		
+		return	listaHorarios.get(numeroHorario-1);
+				
+		}
+	
+	
+	
 
 	public void ImprimirHorarioPelicula(Pelicula pelicula, int anio, int mes, int dia){
 
