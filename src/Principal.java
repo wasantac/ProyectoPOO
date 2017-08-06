@@ -18,7 +18,7 @@ public class Principal {
 		asientosSala1.setColumnas(15);
 		asientosSala1.setFilas(8);
 
-		//System.out.println(asientosSala1.getDisponibles());
+		ListaFormatosSala formatos = new ListaFormatosSala(); 
 
 		Asiento asiento1 = new Asiento('h',3);
 
@@ -30,13 +30,16 @@ public class Principal {
 		sala.setAsientos(asientosSala1);
 		FormatoSala formato = new FormatoSala();
 		sala.setFormato(formato);
+		formatos.AgregarFormato(formato);
 
 		// peliculas
 		ListaPeliculas peliculas = new ListaPeliculas();
-
+		
 		Pelicula pelicula = new Pelicula();
 		pelicula.setNombre("TRANSFORMERS");
 
+		peliculas.ingresarpelicula(pelicula);	
+		
 		ListadoHorarioSala horarios = new ListadoHorarioSala();
 		LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
 		LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
@@ -82,5 +85,12 @@ public class Principal {
 		lineafactura.setHorarioSala(horario1);
 
 		factura.AgregarLineaFactura(lineafactura);
+		
+		///////////////////////////////////////////////////////////////////////////////
+		//pruebas clientes
+		peliculas.Cartelera();
+		formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
+		// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
+		asientosSala1.VisualizacionAsientos();
 	}
 }

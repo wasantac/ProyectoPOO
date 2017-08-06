@@ -50,7 +50,12 @@ public class ListaAsientos {
 		return false;
 	}
 
+	public boolean AsientoAsignado(char fila, int numero) {
+		Asiento a = new Asiento(fila, numero);
+		return AsientoAsignado(a);
+	}
 
+	
 	/**
 	 * Funcion que asigna asientos
 	 * @param fila char
@@ -136,5 +141,32 @@ public class ListaAsientos {
 
 	public int getOcupados() {
 		return ocupados;
+	}
+	
+	private char ConvertirNumeroLetra(int numero) {
+		return 'a';
+	}
+
+	public void VisualizacionAsientos() {
+		
+		for(int i = 1; i <= filas; i++) {
+			printXY(ConvertirNumeroLetra(i));
+			}
+			
+		for (int j = 1; j <= columnas; j++) {
+			printXY(j);
+		}
+
+		for(int i = 1; i <= filas; i++) {
+			for (int j = 1; j <= columnas; j++) {
+				if(AsientoAsignado(ConvertirNumeroLetra(i), j)) {
+					printxy('X');
+				}
+				else {
+					printxy('L');
+				}
+			}
+				
+		}
 	}
 }

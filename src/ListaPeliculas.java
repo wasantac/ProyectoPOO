@@ -27,7 +27,7 @@ public class ListaPeliculas {
 	/**
 	 * Muestra la cartelera de peliculas
 	 */
-	public void cartelera(){
+	public void Cartelera(){
 
 		for(Pelicula vpelicula:listaPeliculas){
 			System.out.println(vpelicula+"\n");

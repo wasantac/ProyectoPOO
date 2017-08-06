@@ -55,4 +55,30 @@ public class Cliente {
 	public void setTarjeta(int tarjeta) {
 		this.tarjeta = tarjeta;
 	}
+	
+	
+	public void PreguntarPrecio(ListadoHorarioSala horarios) {
+		
+	}
+	
+	public void EscogerPelicula(ListadoHorarioSala horarios) {
+		
+	}
+	
+	public void EscogerSala(ListadoHorarioSala horarios) {
+		
+	}
+	
+	public void EscogerAsiento(ListadoHorarioSala horarios) {
+		
+	}
+	
+	public void ComprarBoleto(ListadoHorarioSala horarios) {
+		
+	}
+	
+	public void PagarBoleto(ListadoHorarioSala horarios) {
+		
+	}
+
 }
