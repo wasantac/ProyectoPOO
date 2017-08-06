@@ -15,8 +15,8 @@ public class Principal {
 		sala.setNumSala(1);
 
 		ListaAsientos asientosSala1 = new ListaAsientos();
-		asientosSala1.setColumnas(15);
-		asientosSala1.setFilas(8);
+		asientosSala1.setColumnas(9);
+		asientosSala1.setFilas(12);
 
 		ListaFormatosSala formatos = new ListaFormatosSala(); 
 

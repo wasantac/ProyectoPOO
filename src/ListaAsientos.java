@@ -55,7 +55,7 @@ public class ListaAsientos {
 		return AsientoAsignado(a);
 	}
 
-	
+
 	/**
 	 * Funcion que asigna asientos
 	 * @param fila char
@@ -142,31 +142,53 @@ public class ListaAsientos {
 	public int getOcupados() {
 		return ocupados;
 	}
-	
+
 	private char ConvertirNumeroLetra(int numero) {
-		return 'a';
+		
+		final char letra[] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		
+	
+		return letra[numero-1];
 	}
 
+
 	public void VisualizacionAsientos() {
-		
-		for(int i = 1; i <= filas; i++) {
-			printXY(ConvertirNumeroLetra(i));
-			}
-			
+
+		String linea = "  ";
+
 		for (int j = 1; j <= columnas; j++) {
-			printXY(j);
+			linea+= " "+ Integer.toString(j);
 		}
+		System.out.println(linea);
+
 
 		for(int i = 1; i <= filas; i++) {
-			for (int j = 1; j <= columnas; j++) {
-				if(AsientoAsignado(ConvertirNumeroLetra(i), j)) {
-					printxy('X');
+
+			linea="";
+
+			for (int j = 0; j <= columnas; j++) {
+
+				if(j==0){
+
+					linea+=" "+ConvertirNumeroLetra(i);
+
+				}else{
+
+					if(AsientoAsignado(ConvertirNumeroLetra(i), j)) {
+						linea+=" X";
+					}
+					else {
+						linea+=" L";
+					}
+
+
 				}
-				else {
-					printxy('L');
-				}
+
+
 			}
-				
+			
+			System.out.println(linea);
+
 		}
 	}
 }
