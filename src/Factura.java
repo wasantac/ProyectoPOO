@@ -11,8 +11,9 @@ public class Factura{
 	private ListadoLineasFactura listadolineasfactura;
 
 	public Factura() {
-		this.cliente = new Cliente();
-		this.vendedor = new Empleado();
+		
+		this.cliente = new Cliente("","");
+		this.vendedor = new Empleado("","","");
 		this.fecha = LocalDateTime.now(); 
 		this.precioTotal = 0.0;
 		this.listadolineasfactura = new ListadoLineasFactura();
@@ -75,5 +76,4 @@ public class Factura{
 		this.listadolineasfactura.RemoverLineaFactura(lineaFactura);
 		this.precioTotal = listadolineasfactura.getTotal();
 	}
-	
 }

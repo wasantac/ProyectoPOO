@@ -9,7 +9,7 @@ public class LineaFactura {
 	private HorarioSala horarioSala;
 	private double precioUnitario;
 	private double total;
-	
+
 	public LineaFactura() {
 		this.cantidad = 0;
 		//this.pelicula = new Pelicula();
@@ -19,7 +19,7 @@ public class LineaFactura {
 		this.precioUnitario = 0;
 		this.total = 0;
 	}
-	
+
 	public LineaFactura(double cantidad, ArrayList<Asiento> asientos, HorarioSala horarioSala, double precioUnitario) {
 		this.cantidad = cantidad;
 		//this.pelicula = pelicula;
@@ -29,52 +29,52 @@ public class LineaFactura {
 		this.precioUnitario = precioUnitario;
 		this.total = cantidad * precioUnitario;
 	}
-	
+
 	public void CalcularTotal() {
 		this.total = this.cantidad * this.precioUnitario;
 	}
-	
+
 	public double getCantidad() {
 		return cantidad;
 	}
-	
+
 	public void setCantidad(double cantidad) {
 		this.cantidad = cantidad;
 		CalcularTotal();
-		}
-	
-//	public Pelicula getPelicula() {
-//		return pelicula;
-//	}
-//	
-//	public void setPelicula(Pelicula pelicula) {
-//		this.pelicula = pelicula;
-//	}
-	
+	}
+
+	//	public Pelicula getPelicula() {
+	//		return pelicula;
+	//	}
+	//	
+	//	public void setPelicula(Pelicula pelicula) {
+	//		this.pelicula = pelicula;
+	//	}
+
 	public ArrayList<Asiento> getAsientos() {
 		return asientos;
 	}
-	
+
 	public void setAsientos(ArrayList<Asiento> asientos) {
 		this.asientos = asientos;
 	}
-	
-//	public Sala getSala() {
-//		return sala;
-//	}
-//	
-//	public void setSala(Sala sala) {
-//		this.sala = sala;
-//	}
-	
+
+	//	public Sala getSala() {
+	//		return sala;
+	//	}
+	//	
+	//	public void setSala(Sala sala) {
+	//		this.sala = sala;
+	//	}
+
 	public HorarioSala getHorarioSala() {
 		return horarioSala;
 	}
-	
+
 	public void setHorarioSala(HorarioSala horarioSala) {
 		this.horarioSala = horarioSala;
 	}
-	
+
 	public double getPrecioUnitario() {
 		return precioUnitario;
 	}
@@ -83,7 +83,7 @@ public class LineaFactura {
 		this.precioUnitario = precioUnitario;
 		CalcularTotal();
 	}
-	
+
 	public void setPrecioUnitario(double precioUnitario, int tarjeta) {
 		if (tarjeta == 1) {
 			this.precioUnitario = precioUnitario - (precioUnitario * 20 / 100);
@@ -97,5 +97,4 @@ public class LineaFactura {
 	public double getTotal() {
 		return total;
 	}	
-	
 }

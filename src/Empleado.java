@@ -5,9 +5,9 @@
 public class Empleado {
    
     private static double pagoPorHoraExtra; 
-    private String ID;
-    private String nombre;
-    private String apellido;
+    private final String ID;
+    private final String nombre;
+    private final String apellido;
     private String posicion;
     private double sueldoBase; 
     private int horasExtras;
@@ -15,27 +15,39 @@ public class Empleado {
     /**
      * Constructor por defecto.
      */
-    public Empleado() {
+    public Empleado(String nombre, String apellido, String ID){
     	
+    	this.ID = ID;
+    	this.nombre = nombre;
+    	this.apellido = apellido;
+    	this.posicion = "vendedor";
+        this.sueldoBase = 0;
+        this.horasExtras = 0;
+       	
     }
+    
+     public Empleado(String iD, String nombre, String apellido, String posicion, double sueldoBase, int horasExtras) {
+    	 
+		ID = iD;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.posicion = posicion;
+		this.sueldoBase = sueldoBase;
+		this.horasExtras = horasExtras;
+	}
 
-    /**
+
+
+	/**
      * Getters and Setters
      */
-    public Empleado(String ID) {
-        this.ID = ID;
-    }
-
+    
     public int getHorasExtras() {
         return horasExtras;
     }
 
     public String getApellido() {
 		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
 	}
 
 	public String getPosicion() {
@@ -54,19 +66,11 @@ public class Empleado {
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public String getNombre() {
+     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getSueldoBase() {
+     public double getSueldoBase() {
         return sueldoBase;
     }
 
