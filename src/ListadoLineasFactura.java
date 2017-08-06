@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+
+public class ListadoLineasFactura {
+
+	private ArrayList <LineaFactura> lineasFactura;
+	private double total;
+	
+	public ListadoLineasFactura() {
+		this.lineasFactura = new ArrayList <LineaFactura>();
+		this.total = 0.0;
+	}
+	
+	public ListadoLineasFactura(ArrayList <LineaFactura> listadoLineasFactura, double total) {
+		this.lineasFactura = listadoLineasFactura;
+		this.total = total;
+	}
+	
+	public double getTotal() {
+		return total;
+	}
+
+	public ArrayList<LineaFactura> getLineasFactura() {
+		return lineasFactura;
+	}
+
+	public void AgregarLineaFactura(LineaFactura lineaFactura) {
+		this.lineasFactura.add(lineaFactura);
+		this.total += lineaFactura.getTotal();
+	}
+
+	public void RemoverLineaFactura(LineaFactura lineaFactura) {
+		if (this.lineasFactura.remove(lineaFactura)) {
+			this.total -= lineaFactura.getTotal();
+		}
+	}
+
+}
