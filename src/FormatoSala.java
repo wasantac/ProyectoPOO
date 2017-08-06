@@ -36,7 +36,7 @@ public class FormatoSala  implements Serializable {
 	 * Getters and Setters
 	 */
 	public String getFormato() {
-		return formato;
+		return this.formato;
 	}
 	public void setFormato(String formato) {
 		this.formato = formato;

@@ -67,7 +67,7 @@ public class ListadoHorarioSala implements Serializable {
 
 			if(hs.getInicio().getDayOfMonth() == dia){
 
-				System.out.println(Integer.toString(i + 1) + ") Sala " + hs.getSala().getNumSala() + ", Formato " + hs.getSala().getFormato() + ": de" + String.valueOf(hs.getInicio().getHour() +":"+hs.getInicio().getMinute()+" a "+hs.getFin().getHour()+":"+hs.getFin().getMinute()));
+				System.out.println(Integer.toString(i + 1) + ") Sala " + hs.getSala().getNumSala() + ", Formato " + hs.getSala().getFormato().getFormato() + ": de" + String.valueOf(hs.getInicio().getHour() +":"+hs.getInicio().getMinute()+" a "+hs.getFin().getHour()+":"+hs.getFin().getMinute()));
 				i++;
 
 			}
