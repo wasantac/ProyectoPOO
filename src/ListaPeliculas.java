@@ -20,7 +20,7 @@ public class ListaPeliculas {
 	 * @param vpelicula lista de peliculas
 	 */
 	public void ingresarpelicula(Pelicula vpelicula){
-		
+
 		listaPeliculas.add(vpelicula);
 	}
 
@@ -28,21 +28,9 @@ public class ListaPeliculas {
 	 * Muestra la cartelera de peliculas
 	 */
 	public void cartelera(){
-		
+
 		for(Pelicula vpelicula:listaPeliculas){
 			System.out.println(vpelicula+"\n");
-		}
-	}
-
-	/**
-	 * Muestra la informacion de la sala
-	 */
-	public void informacionSala(){
-
-		for(Pelicula vpelicula:listaPeliculas){
-			
-			System.out.println(vpelicula.getNombre());
-			vpelicula.salas();
 		}
 	}
 }
