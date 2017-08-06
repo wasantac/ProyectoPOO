@@ -1,9 +1,14 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.ArrayList;
 
-public class Factura{
+public class Factura implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Cliente cliente;
 	private Empleado vendedor;
 	private LocalDateTime fecha; 

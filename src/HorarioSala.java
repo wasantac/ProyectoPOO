@@ -1,11 +1,16 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase HorarioSala la cual crea objetos del tipo HorarioSala.
  */
-public class HorarioSala {
+public class HorarioSala implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private LocalDateTime inicio;
 	private LocalDateTime fin;
 	private Sala sala;

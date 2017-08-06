@@ -1,3 +1,4 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
@@ -6,8 +7,12 @@ import java.util.ArrayList;
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase HorarioSala la cual crea objetos del tipo HorarioSala.
  */
-public class ListadoHorarioSala {
+public class ListadoHorarioSala implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList<HorarioSala> listaHorarios;
 
 	/**

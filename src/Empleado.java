@@ -2,9 +2,16 @@
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Empleado la cual crea objetos del tipo Empleado.
  */
-public class Empleado {
+
+import java.io.Serializable;
+
+public class Empleado implements Serializable {
    
-    private static double pagoPorHoraExtra; 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static double pagoPorHoraExtra; 
     private final String ID;
     private final String nombre;
     private final String apellido;

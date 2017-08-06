@@ -1,7 +1,12 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ListadoLineasFactura {
+public class ListadoLineasFactura implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private ArrayList <LineaFactura> lineasFactura;
 	private double total;
 	

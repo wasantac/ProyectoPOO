@@ -1,16 +1,39 @@
+import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 
-public class Principal {
+public class Principal implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static ArrayList<Sala> salas = new ArrayList<Sala>();
+	private static ArrayList<Factura> facturas = new ArrayList<Factura>();
+	private static ListaPeliculas peliculas = new ListaPeliculas();
+	private static ListadoHorarioSala horarios = new ListadoHorarioSala();
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-		// COntrola la salas existentes
-		ArrayList<Sala> salas = new ArrayList<Sala>();
-		//
+	    String sFichero = "data.txt";
+	    File fichero = new File(sFichero);
+	    
+	    if (!fichero.exists()) {
+	    	CrearFicheroInicial(sFichero);
+	    }
+	    else {
+	    	
+	    }
 
+	    // Lectura del archivo
+		
+	}
+
+	private static void CrearFicheroInicial(String nombreArchivo) {
+
+		// Creacion de las 4 salas
 		Sala sala = new Sala();
 		sala.setNumSala(1);
 
@@ -31,16 +54,12 @@ public class Principal {
 		FormatoSala formato = new FormatoSala();
 		sala.setFormato(formato);
 		formatos.AgregarFormato(formato);
-
-		// peliculas
-		ListaPeliculas peliculas = new ListaPeliculas();
 		
 		Pelicula pelicula = new Pelicula();
 		pelicula.setNombre("TRANSFORMERS");
 
 		peliculas.ingresarpelicula(pelicula);	
 		
-		ListadoHorarioSala horarios = new ListadoHorarioSala();
 		LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
 		LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
 		HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula, sala);
@@ -92,5 +111,18 @@ public class Principal {
 		formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
 		// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
 		asientosSala1.VisualizacionAsientos();
+
+		
+		//// Escritura del archivo
+		//FileManager.WriteObject obj = new WriteObject();
+
+		//Address address = new Address();
+		//address.setStreet("wall street");
+		//address.setCountry("united state");
+
+		//obj.serializeAddress(address);
+		
 	}
+
 }
+

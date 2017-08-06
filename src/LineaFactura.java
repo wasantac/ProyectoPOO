@@ -1,7 +1,12 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class LineaFactura {
+public class LineaFactura implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private double cantidad;
 	//private Pelicula pelicula;
 	private ArrayList<Asiento> asientos;

@@ -1,9 +1,15 @@
+import java.io.Serializable;
+
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase FormatoSala la cual crea objetos del tipo FormatoSala.
  */
-public class FormatoSala {
+public class FormatoSala  implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String formato;
 	private double precio; 
 

@@ -1,9 +1,15 @@
+import java.io.Serializable;
+
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Pelicula la cual crea objetos del tipo Pelicula.
  */
-public class Pelicula {
+public class Pelicula implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String nombre;
 	private final int minutos;
 	private String idioma;

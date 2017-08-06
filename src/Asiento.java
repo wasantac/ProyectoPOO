@@ -2,8 +2,15 @@
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Asiento la cual crea objetos del tipo Asiento.
  */
-public class Asiento {
 
+import java.io.Serializable;
+
+public class Asiento implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;	
 	private char fila;
 	private int numero;
 
@@ -41,4 +48,12 @@ public class Asiento {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}	
+
+	@Override
+	public String toString() {
+		return new StringBuffer(" Asiento, fila ")
+				.append(this.fila).append(" numero : ")
+				.append(this.numero).toString();
+	}
+
 }

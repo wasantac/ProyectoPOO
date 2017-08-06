@@ -1,11 +1,15 @@
-import java.util.ArrayList;
+import java.io.Serializable;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Sala la cual crea objetos del tipo Sala.
  */
-public class Sala {
+public class Sala implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numSala;
 	private ListaAsientos asientos;
 	private FormatoSala formato;
