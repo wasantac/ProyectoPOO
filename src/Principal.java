@@ -81,6 +81,17 @@ public class Principal implements Serializable  {
 				System.out.println("Seleccione la butaca: ");
 
 				butaca = sc.next();
+				
+			if(	h.getSala().getAsientos().AsignarAsiento(butaca)== true){
+				
+				System.out.println("Asiento Asignado"+ butaca);
+				
+				
+			}
+				
+				
+				
+				
 
 			}catch(Exception e){
 
