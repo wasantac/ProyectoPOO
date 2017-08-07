@@ -29,7 +29,7 @@ public class ListaEmpleados {
 	}
 	
 	
-	public boolean verificarCLiente(String vid){
+	public boolean existeEmpleado(String vid){
 
 		for(Empleado e: lista_empleados){
 
