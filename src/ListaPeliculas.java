@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -51,4 +53,30 @@ public class ListaPeliculas implements Serializable {
 			
 		}
 	}
+
+	public void GenerarInformePeliculas(String archivo) {
+
+		FileWriter fichero1 = null;
+		PrintWriter pw = null;
+		try{
+			fichero1 = new FileWriter(archivo, true);
+			pw = new PrintWriter (fichero1);
+			for(Pelicula pelicula: this.listaPeliculas)
+			{
+				pw.println(pelicula);
+			}
+		}
+		catch(Exception e ){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(null != fichero1);
+				fichero1.close();
+			}catch(Exception e2){
+				e2.printStackTrace();
+			}
+		}
+		
+	}
+
 }
