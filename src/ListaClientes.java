@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -93,5 +95,31 @@ public class ListaClientes {
 				break;
 			}
 		}
+	}
+
+	public void GenerarInformeClientes(String archivo) {
+		PrintWriter pw = null;
+		FileWriter fichero3 = null;
+		
+	try{
+		fichero3 = new FileWriter(archivo, true);
+		pw = new PrintWriter (fichero3);
+		for(Cliente c: lista_clientes) {
+			pw.println("***********************");
+			pw.println("Nombre: " + c.getNombre());
+			pw.println("Cedula: " + c.getID());
+			pw.println("Tarjeta: " + c.getTarjeta());
+		}
+	}catch(Exception e ){
+		e.printStackTrace();
+	}finally{
+		try{
+			if(null != fichero3);
+			fichero3.close();
+		}catch(Exception e2){
+			e2.printStackTrace();
+		}
+	}
+	
 	}
 }

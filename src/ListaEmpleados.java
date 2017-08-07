@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 /**
@@ -63,6 +65,37 @@ public class ListaEmpleados {
 		}
 	}
 
+	public void GenerarInformeEmpleados(String archivo) {
+		 FileWriter fichero2 = null;
+		 PrintWriter pw = null;
+			
+		try{
+			fichero2 = new FileWriter(archivo, true);
+			pw = new PrintWriter (fichero2);
+			for(Empleado em: lista_empleados) {
+				pw.println("***********************");
+				pw.println("Apellido: " + em.getApellido());
+				pw.println("Nombre: " + em.getNombre());
+				pw.println("Cedula: " + em.getID());
+				pw.println("Posicion: " + em.getPosicion());
+				pw.println("Sueldo Base: " + em.getSueldoBase());
+				pw.println("Horas Extras: " + em.getHorasExtras());
+			}
+
+			}
+		catch(Exception e ){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(null != fichero2);
+				fichero2.close();
+			}catch(Exception e2){
+				e2.printStackTrace();
+			}
+		}
+
+	}
+	
 	public void ingresar(String vID, String vnombre, String vapellido,String vposicion){
 
 		lista_empleados.add(new Empleado(vID, vnombre, vapellido, vposicion));
