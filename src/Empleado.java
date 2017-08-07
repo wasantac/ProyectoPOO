@@ -35,13 +35,22 @@ public class Empleado implements Serializable {
     
      public Empleado(String iD, String nombre, String apellido, String posicion, double sueldoBase, int horasExtras) {
     	 
-		ID = iD;
+		this.ID = iD;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.posicion = posicion;
 		this.sueldoBase = sueldoBase;
 		this.horasExtras = horasExtras;
 	}
+     
+    public Empleado(String iD, String nombre, String apellido,String posicion){
+    	
+    	 
+		this.ID = iD;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.posicion = posicion;
+     }
 
 
 
