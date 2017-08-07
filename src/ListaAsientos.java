@@ -46,6 +46,38 @@ public class ListaAsientos implements Serializable {
 		this.columnas = columnas;
 	}
 
+	public boolean FormatoAsientoCorrecto (String butaca) {
+		
+		String[] temp = butaca.toLowerCase().trim().split(" ");
+		
+		if(temp.length == 2) {
+			if(temp[0].length() != 1 || !Character.isLetter(temp[0].charAt(0))) {
+				return false;
+			}
+			for(int i=1; i<temp[1].length(); i++){
+				if(!Character.isDigit(temp[1].charAt(i))) {
+					return false;
+				}
+			}
+			return true;
+		}
+		return false;
+	}
+
+	private Asiento ConvertirAsiento (String butaca) {
+
+		char fila = ' ';
+		int columna = 0;
+		
+		String[] temp = butaca.toLowerCase().trim().split(" ");
+		
+		fila = temp[0].charAt(0);
+		columna = Integer.parseInt(temp[1]);
+		
+		return new Asiento(fila, columna);
+		
+	}
+	
 	public boolean AsientoAsignado(Asiento asiento) {
 		for (Asiento a: listaAsientos) {
 			if(a.getFila() == asiento.getFila()&& a.getNumero() == asiento.getNumero()) {
@@ -60,7 +92,11 @@ public class ListaAsientos implements Serializable {
 		return AsientoAsignado(a);
 	}
 
-
+	public boolean AsientoAsignado(String butaca) {
+		Asiento a = ConvertirAsiento(butaca);
+		return AsientoAsignado(a);
+	}
+	
 	/**
 	 * Funcion que asigna asientos
 	 * @param fila char
@@ -73,6 +109,11 @@ public class ListaAsientos implements Serializable {
 		listaAsientos.add(asiento);
 		recalcularVariable();		
 		return true;
+	}
+
+	public boolean AsignarAsiento(String butaca){
+		Asiento a = ConvertirAsiento(butaca);
+		return AsignarAsiento(a);
 	}
 
 	public void imprimir(){
