@@ -84,7 +84,7 @@ public class Principal implements Serializable  {
 
 					h.getSala().getAsientos().VisualizacionAsientos();
 
-					System.out.println("Ingrese la butaca en este formato: fila (espacio) numero, ejemplo h 3 ");
+					System.out.println("Ingrese la butaca en este formato: fila,numero \n ejemplo: h,3 ");
 
 					System.out.println("Seleccione la butaca: ");
 
@@ -92,7 +92,7 @@ public class Principal implements Serializable  {
 
 					if(!h.getSala().getAsientos().FormatoAsientoCorrecto(butaca)) {
 
-						System.out.println("El formato correcto es\n letra (espacio) numero, ejemplo: h 3");
+						System.out.println("El formato correcto es\n letra,numero\n ejemplo: h,3");
 
 					}else {
 
@@ -102,7 +102,7 @@ public class Principal implements Serializable  {
 
 						}else if(h.getSala().getAsientos().AsignarAsiento(butaca)== true){
 
-							System.out.println("Asiento Asignado"+ butaca);
+							System.out.println("Asiento Asignado "+ butaca);
 
 						}
 					}

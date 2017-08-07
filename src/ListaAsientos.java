@@ -48,7 +48,7 @@ public class ListaAsientos implements Serializable {
 
 	public boolean FormatoAsientoCorrecto (String butaca) {
 		
-		String[] temp = butaca.toLowerCase().trim().split(" ");
+		String[] temp = butaca.toLowerCase().trim().split(",");
 		
 		if(temp.length == 2) {
 			if(temp[0].length() != 1 || !Character.isLetter(temp[0].charAt(0))) {
@@ -69,7 +69,7 @@ public class ListaAsientos implements Serializable {
 		char fila = ' ';
 		int columna = 0;
 		
-		String[] temp = butaca.toLowerCase().trim().split(" ");
+		String[] temp = butaca.toLowerCase().trim().split(",");
 		
 		fila = temp[0].charAt(0);
 		columna = Integer.parseInt(temp[1]);
