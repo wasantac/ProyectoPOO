@@ -26,12 +26,35 @@ public class ListaClientes {
 		return null;
 	}
 
+
+
+	public boolean verificarCLiente(String vid){
+
+		for(Cliente c: lista_clientes){
+
+			if(c.getID() == vid){
+
+				System.out.println("El cliente si existe");
+				
+
+			}else{
+
+				System.out.println("El cliente no existe");
+			}
+				
+		}
+
+		return true;
+
+	}
+
+
 	public void imprimir(){
 
 		Iterator<Cliente> i = lista_clientes.iterator();
 
 		while(i.hasNext()){
-			
+
 			int j=1;
 			Cliente c = i.next();
 			System.out.println(j+") "+"Cliente" + " " +c.getID()+" "+c.getNombre()+" "+c.getDirecccion()+" "+Integer.toString(c.getTarjeta()));

@@ -27,6 +27,28 @@ public class ListaEmpleados {
 		}
 		return null;
 	}
+	
+	
+	public boolean verificarCLiente(String vid){
+
+		for(Empleado e: lista_empleados){
+
+			if(e.getID() == vid){
+
+				System.out.println("El empleado si existe");
+				
+
+			}else{
+
+				System.out.println("El empleado no existe");
+			}
+				
+		}
+
+		return true;
+
+	}
+	
 
 	public void imprimir(){
 
