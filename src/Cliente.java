@@ -61,27 +61,4 @@ public class Cliente implements Serializable{
 	public void setTarjeta(int tarjeta) {
 		this.tarjeta = tarjeta;
 	}
-	
-	
-	
-	public void EscogerPelicula(ListadoHorarioSala horarios) {
-		
-	}
-	
-	public void EscogerSala(ListadoHorarioSala horarios) {
-		
-	}
-	
-	public void EscogerAsiento(ListadoHorarioSala horarios) {
-		
-	}
-	
-	public void ComprarBoleto(ListadoHorarioSala horarios) {
-		
-	}
-	
-	public void PagarBoleto(ListadoHorarioSala horarios) {
-		
-	}
-
 }
