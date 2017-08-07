@@ -37,17 +37,13 @@ public class ListaClientes {
 			if(c.getID() == vid){
 
 				System.out.println("El cliente si existe");
-				
+				return true;
 
-			}else{
-
-				System.out.println("El cliente no existe");
-			}
-				
+			}				
 		}
 
-		return true;
-
+		System.out.println("El cliente no existe");
+		return false;
 	}
 	
 	
