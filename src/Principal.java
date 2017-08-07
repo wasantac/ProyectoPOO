@@ -3,13 +3,13 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.Scanner;
-
+/**
+ * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
+ * Clase Principal del sistema.
+ */
 public class Principal implements Serializable  {
 
 	static Scanner sc = new Scanner(System.in);
@@ -125,10 +125,8 @@ public class Principal implements Serializable  {
 			System.out.println("*****BIENVENIDO******");
 			System.out.println("1.LOGUEAR");
 			System.out.println("2.VENDER BOLETO");
-			System.out.println("3.IMPRIMIR BOLETO");
-			System.out.println("4.EMITIR FACTURA");
-			System.out.println("5.GENERAR FACTURA"); 
-			System.out.println("6.SALIR");
+			System.out.println("3.GENERAR FACTURA"); 
+			System.out.println("4.SALIR");
 
 			char opcion2 = sc.next().charAt(0);
 
@@ -184,20 +182,16 @@ public class Principal implements Serializable  {
 
 				break;
 
+			
+
 			case '3':
 
-				System.out.println("BOLETO: //todos los atributos del boleto");
+				GenerarInformeFacturas("informe-facturas.txt");
+				
+				break;
+
 
 			case '4':
-
-				System.out.println("FACTURA: //todos los atributos de la factura");
-
-			case '5':
-
-				GenerarInformeFacturas("informe-facturas.txt");
-
-
-			case '6':
 
 				System.exit(0); 
 

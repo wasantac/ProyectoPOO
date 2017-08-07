@@ -7,9 +7,6 @@ import java.time.LocalDateTime;
  */
 public class HorarioSala implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private LocalDateTime inicio;
 	private LocalDateTime fin;

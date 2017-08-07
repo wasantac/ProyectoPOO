@@ -1,11 +1,14 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
+ * Clase LineaFactura la cual crea objetos del tipo LineaFactura.
+ */
+
 public class LineaFactura implements Serializable {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private double cantidad;
 	//private Pelicula pelicula;
@@ -15,6 +18,9 @@ public class LineaFactura implements Serializable {
 	private double precioUnitario;
 	private double total;
 
+	/**
+	 * Constructor por defecto
+	 */
 	public LineaFactura() {
 		this.cantidad = 0;
 		//this.pelicula = new Pelicula();
@@ -48,14 +54,6 @@ public class LineaFactura implements Serializable {
 		CalcularTotal();
 	}
 
-	//	public Pelicula getPelicula() {
-	//		return pelicula;
-	//	}
-	//	
-	//	public void setPelicula(Pelicula pelicula) {
-	//		this.pelicula = pelicula;
-	//	}
-
 	public ArrayList<Asiento> getAsientos() {
 		return asientos;
 	}
@@ -63,15 +61,6 @@ public class LineaFactura implements Serializable {
 	public void setAsientos(ArrayList<Asiento> asientos) {
 		this.asientos = asientos;
 	}
-
-	//	public Sala getSala() {
-	//		return sala;
-	//	}
-	//	
-	//	public void setSala(Sala sala) {
-	//		this.sala = sala;
-	//	}
-
 	public HorarioSala getHorarioSala() {
 		return horarioSala;
 	}

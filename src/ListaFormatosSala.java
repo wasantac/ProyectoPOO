@@ -1,11 +1,11 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
+ * Clase  ListaFormatosSala la cual crea objetos del tipo  ListaFormatosSala
+ */
 public class ListaFormatosSala implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<FormatoSala> listaFormatosSala;
 	

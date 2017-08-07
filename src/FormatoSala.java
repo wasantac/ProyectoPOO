@@ -6,9 +6,6 @@ import java.io.Serializable;
  */
 public class FormatoSala  implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String formato;
 	private double precio; 

@@ -5,9 +5,6 @@ import java.util.ArrayList;
 
 public class Factura implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Cliente cliente;
 	private Empleado vendedor;
@@ -15,6 +12,9 @@ public class Factura implements Serializable {
 	private double precioTotal;
 	private ListadoLineasFactura listadolineasfactura;
 
+	/**
+	 * Constructor por defecto 
+	 */
 	public Factura() {
 		
 		this.cliente = new Cliente("","");

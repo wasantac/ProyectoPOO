@@ -8,9 +8,6 @@ import java.util.Iterator;
  */
 public class ListaAsientos implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Asiento> listaAsientos;
 	private int total;

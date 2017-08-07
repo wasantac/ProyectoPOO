@@ -1,14 +1,10 @@
+import java.io.Serializable;
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase CLiente la cual crea objetos del tipo Cliente.
  */
-import java.io.Serializable;
-
 public class Cliente implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private final String nombre;
 	private final String ID;

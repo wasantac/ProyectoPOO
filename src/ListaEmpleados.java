@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 /**
  * @author NARVAEZ, RANGLES, SUAREZ
- * Clase Lista_Jugadores la cual crea la lista de jugadores
+ * Clase ListaEmpleados la cual crea la lista de empleados
  */
 public class ListaEmpleados {
 

@@ -1,11 +1,12 @@
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
+ * Clase ListadoLineasFactura la cual crea objetos del tipo ListadoLineasFactura
+ */
 public class ListadoLineasFactura implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private ArrayList <LineaFactura> lineasFactura;
 	private double total;
@@ -38,5 +39,4 @@ public class ListadoLineasFactura implements Serializable {
 			this.total -= lineaFactura.getTotal();
 		}
 	}
-
 }

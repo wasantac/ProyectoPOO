@@ -9,9 +9,6 @@ import java.util.ArrayList;
  */
 public class ListadoHorarioSala implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private ArrayList<HorarioSala> listaHorarios;
 
