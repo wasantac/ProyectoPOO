@@ -28,7 +28,7 @@ public class ListaClientes {
 
 
 
-	public boolean verificarCLiente(String vid){
+	public boolean existeCLiente(String vid){
 
 		for(Cliente c: lista_clientes){
 
