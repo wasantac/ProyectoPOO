@@ -152,7 +152,7 @@ public class Principal implements Serializable  {
 					System.out.println("Ingrese el ID del cliente: ");
 					ID= sc.next();
 					
-					If(ID == false){
+					If(vid == false){
 
 					System.out.println("Ingrese los datos del cliente ");	
 

@@ -47,6 +47,21 @@ public class ListaClientes {
 		return true;
 
 	}
+	
+	
+	public boolean idCorrecto(String vid){
+		
+						
+		vid = vid.trim();
+		
+		for(int i=0; i<vid.length(); i++){
+			
+			Character.isLetterOrDigit(i);
+				
+		}
+		return true;
+		
+	}
 
 
 	public void imprimir(){
