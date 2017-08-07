@@ -272,118 +272,120 @@ public class Principal implements Serializable  {
 	}
 
 
-private static void CrearFicheroInicial(String sFichero) {
-	// Lectura del archivo
+	private static void CrearFicheroInicial(String sFichero) {
+		// Lectura del archivo
 
-	// Creacion de las 4 salas
-	Sala sala1 = new Sala();
-	sala1.setNumSala(1);
-	Sala sala2 = new Sala();
-	sala2.setNumSala(2);
-	Sala sala3 = new Sala();
-	sala3.setNumSala(3);
-	Sala sala4 = new Sala();
-	sala4.setNumSala(4);
+		// Creacion de las 4 salas
+		Sala sala1 = new Sala();
+		sala1.setNumSala(1);
+		Sala sala2 = new Sala();
+		sala2.setNumSala(2);
+		Sala sala3 = new Sala();
+		sala3.setNumSala(3);
+		Sala sala4 = new Sala();
+		sala4.setNumSala(4);
 
-	ListaAsientos asientosSala1 = new ListaAsientos();
-	asientosSala1.setColumnas(9);
-	asientosSala1.setFilas(12);
+		ListaAsientos asientosSala1 = new ListaAsientos();
+		asientosSala1.setColumnas(9);
+		asientosSala1.setFilas(12);
 
-	ListaAsientos asientosSala2 = new ListaAsientos();
-	asientosSala2.setColumnas(8);
-	asientosSala2.setFilas(10);
+		ListaAsientos asientosSala2 = new ListaAsientos();
+		asientosSala2.setColumnas(8);
+		asientosSala2.setFilas(10);
 
-	ListaAsientos asientosSala3 = new ListaAsientos();
-	asientosSala3.setColumnas(5);
-	asientosSala3.setFilas(7);
-
-
-	Asiento asiento1 = new Asiento('h',3);
-    Asiento asiento2 = new Asiento('b',5);
-	Asiento asiento3 = new Asiento('d',1);
-	Asiento asiento4 = new Asiento('f',7);
-
-	
-	FormatoSala formato = new FormatoSala();
-	formatos.AgregarFormato(formato);
-	FormatoSala formato1 = new FormatoSala("3D", 7.50);
-	formatos.AgregarFormato(formato1);
-	FormatoSala formato2 = new FormatoSala("IMAX", 9.25);
-	formatos.AgregarFormato(formato2);
-	
-	sala1.setAsientos(asientosSala1);
-	sala1.setFormato(formato);
-
-	
-	
-	Pelicula pelicula = new Pelicula();
-	pelicula.setNombre("TRANSFORMERS");
-
-	peliculas.ingresarpelicula(pelicula);	
-
-	LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
-	LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
-	HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula, sala1);
-	horarios.AgregarHorario(horario1);
-
-	LocalDateTime inicio1 = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
-	LocalDateTime fin1 = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 10, 0);
-	LocalDateTime inicio2 = LocalDateTime.of(2017, Month.AUGUST, 6, 12, 10, 0);
-	LocalDateTime fin2 = LocalDateTime.of(2017, Month.AUGUST, 6, 13, 30, 0);
-	LocalDateTime inicio3 = LocalDateTime.of(2017, Month.AUGUST, 7, 20, 10, 0);
-	LocalDateTime fin3 = LocalDateTime.of(2017, Month.AUGUST, 7, 11, 22, 10);
+		ListaAsientos asientosSala3 = new ListaAsientos();
+		asientosSala3.setColumnas(5);
+		asientosSala3.setFilas(7);
 
 
-	horarios.AgregarHorario(inicio1, fin1, pelicula, sala1);
-	horarios.AgregarHorario(inicio2, fin2, pelicula, sala2);
-	horarios.AgregarHorario(inicio3, fin3, pelicula, sala2);
+		Asiento asiento1 = new Asiento('h',3);
+	    Asiento asiento2 = new Asiento('b',5);
+		Asiento asiento3 = new Asiento('d',1);
+		Asiento asiento4 = new Asiento('f',7);
+
+		
+		FormatoSala formato = new FormatoSala();
+		formatos.AgregarFormato(formato);
+		FormatoSala formato1 = new FormatoSala("3D", 7.50);
+		formatos.AgregarFormato(formato1);
+		FormatoSala formato2 = new FormatoSala("IMAX", 9.25);
+		formatos.AgregarFormato(formato2);
+		
+		sala1.setAsientos(asientosSala1);
+		sala1.setFormato(formato);
+
+		Pelicula pelicula1 = new Pelicula("TRANSFORMERS", 120, "Ingles", "12");
+		Pelicula pelicula2 = new Pelicula("AVENGERS", 180, "Espanol", "Todo Publico");
+		Pelicula pelicula3 = new Pelicula("IRON MAN 3", 190, "Ingles", "Todo Publico");
+		Pelicula pelicula4 = new Pelicula("MI NOVIA POLY", 160, "Ingles", "12");
+		
+		peliculas.ingresarpelicula(pelicula1);	
+		peliculas.ingresarpelicula(pelicula2);	
+		peliculas.ingresarpelicula(pelicula3);	
+		peliculas.ingresarpelicula(pelicula4);	
+
+		LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
+		LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
+		HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula1, sala1);
+
+		LocalDateTime inicio1 = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
+		LocalDateTime fin1 = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 10, 0);
+		LocalDateTime inicio2 = LocalDateTime.of(2017, Month.AUGUST, 6, 12, 10, 0);
+		LocalDateTime fin2 = LocalDateTime.of(2017, Month.AUGUST, 6, 13, 30, 0);
+		LocalDateTime inicio3 = LocalDateTime.of(2017, Month.AUGUST, 7, 20, 10, 0);
+		LocalDateTime fin3 = LocalDateTime.of(2017, Month.AUGUST, 7, 11, 22, 10);
+
+		horarios.AgregarHorario(horario1);
+		horarios.AgregarHorario(inicio1, fin1, pelicula1, sala2);
+		horarios.AgregarHorario(inicio2, fin2, pelicula1, sala3);
+		horarios.AgregarHorario(inicio3, fin3, pelicula2, sala1);
 
 
-	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 5); 
-	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 6);
-	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 7);
-	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 8);
+		//horarios.ImprimirHorarioPelicula(pelicula1, 2017, 8, 5); 
+		//horarios.ImprimirHorarioPelicula(pelicula1, 2017, 8, 6);
+		//horarios.ImprimirHorarioPelicula(pelicula2, 2017, 8, 7);
+		//horarios.ImprimirHorarioPelicula(pelicula3, 2017, 8, 8);
 
 
-	Empleado vendedor1 = new Empleado("Patricio","Rangles","1717104127");
-	vendedor1.setPosicion("Vendedor");
+		Empleado vendedor1 = new Empleado("Patricio","Rangles","1717104127");
+		vendedor1.setPosicion("Vendedor");
 
-	Cliente cliente1 = new Cliente("Luchito Cifuentes","1823632929");
-	cliente1.setTarjeta(1);
+		Cliente cliente1 = new Cliente("Luchito Cifuentes","1823632929");
+		cliente1.setTarjeta(1);
 
-	Factura factura = new Factura();
-	factura.setCliente(cliente1);
-	factura.setFecha(LocalDateTime.of(2017, Month.AUGUST, 5, 07, 33, 30));
+		Factura factura = new Factura();
+		factura.setCliente(cliente1);
+		factura.setFecha(LocalDateTime.of(2017, Month.AUGUST, 5, 07, 33, 30));
 
-	ArrayList<Asiento> asientosFactura = new ArrayList<Asiento>(); 
-	asientosFactura.add(asiento1);
+		ArrayList<Asiento> asientosFactura = new ArrayList<Asiento>(); 
+		asientosFactura.add(asiento1);
 
-	LineaFactura lineafactura = new LineaFactura();
-	lineafactura.setCantidad(3);
-	lineafactura.setPrecioUnitario(sala1.getFormato().getPrecio(), cliente1.getTarjeta());
-	lineafactura.setAsientos(asientosFactura);
-	lineafactura.setHorarioSala(horario1);
+		LineaFactura lineafactura = new LineaFactura();
+		lineafactura.setCantidad(3);
+		lineafactura.setPrecioUnitario(sala1.getFormato().getPrecio(), cliente1.getTarjeta());
+		lineafactura.setAsientos(asientosFactura);
+		lineafactura.setHorarioSala(horario1);
 
-	factura.AgregarLineaFactura(lineafactura);
+		factura.AgregarLineaFactura(lineafactura);
 
-	///////////////////////////////////////////////////////////////////////////////
-	//pruebas clientes
-	//peliculas.Cartelera();
-	//formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
-	// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
+		///////////////////////////////////////////////////////////////////////////////
+		//pruebas clientes
+		//peliculas.Cartelera();
+		//formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
+		// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
 
 
 
-	//// Escritura del archivo
-	//FileManager.WriteObject obj = new WriteObject();
+		//// Escritura del archivo
+		//FileManager.WriteObject obj = new WriteObject();
 
-	//Address address = new Address();
-	//address.setStreet("wall street");
-	//address.setCountry("united state");
+		//Address address = new Address();
+		//address.setStreet("wall street");
+		//address.setCountry("united state");
 
-	//obj.serializeAddress(address);
+		//obj.serializeAddress(address);
 
-}
+	}
 
 	//	public void serializeAddress(Address address) {
 	//
