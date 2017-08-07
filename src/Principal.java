@@ -339,10 +339,10 @@ private static void CrearFicheroInicial(String sFichero) {
 	horarios.AgregarHorario(inicio3, fin3, pelicula, sala2);
 
 
-	horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 5); 
-	horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 6);
-	horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 7);
-	horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 8);
+	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 5); 
+	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 6);
+	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 7);
+	//horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 8);
 
 
 	Empleado vendedor1 = new Empleado("Patricio","Rangles","1717104127");
@@ -368,8 +368,8 @@ private static void CrearFicheroInicial(String sFichero) {
 
 	///////////////////////////////////////////////////////////////////////////////
 	//pruebas clientes
-	peliculas.Cartelera();
-	formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
+	//peliculas.Cartelera();
+	//formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
 	// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
 
 
