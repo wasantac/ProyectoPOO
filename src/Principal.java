@@ -18,6 +18,9 @@ public class Principal implements Serializable  {
 	static ArrayList<Factura> facturas = new ArrayList<Factura>();
 	static ListaPeliculas peliculas = new ListaPeliculas();
 	static ListadoHorarioSala horarios = new ListadoHorarioSala();
+	static ListaFormatosSala formatos = new ListaFormatosSala();
+	static ListaClientes clientes = new ListaClientes();	
+	static ListaEmpleados empleados = new ListaEmpleados();	
 
 	public static void main(String[] args) throws Exception {
 
@@ -86,13 +89,13 @@ public class Principal implements Serializable  {
 					System.out.println("Seleccione la butaca: ");
 
 					butaca = sc.next();
-					
+
 					if(!h.getSala().getAsientos().FormatoAsientoCorrecto(butaca)) {
-						
+
 						System.out.println("El formato correcto es\n letra (espacio) numero, ejemplo: h 3");
-						
+
 					}else {
-						
+
 						if(h.getSala().getAsientos().AsientoAsignado(butaca)== true){
 
 							System.out.println("ASIENTO OCUPADO");
@@ -103,7 +106,7 @@ public class Principal implements Serializable  {
 
 						}
 					}
-					
+
 
 				}catch(Exception e){
 
@@ -119,13 +122,13 @@ public class Principal implements Serializable  {
 
 		case '2':
 
-
 			System.out.println("*****BIENVENIDO******");
 			System.out.println("1.LOGUEAR");
 			System.out.println("2.VENDER BOLETO");
 			System.out.println("3.IMPRIMIR BOLETO");
 			System.out.println("4.EMITIR FACTURA");
-			System.out.println("5.SALIR");
+			System.out.println("5.GENERAR FACTURA"); 
+			System.out.println("6.SALIR");
 
 			char opcion2 = sc.next().charAt(0);
 
@@ -145,36 +148,33 @@ public class Principal implements Serializable  {
 			case '2':
 
 				try{
-					
+
 					String ID;
 					String nombre;
 					String direccion;
 					int tarjeta;
-					
+
 					System.out.println("Ingrese el ID del cliente: ");
 					ID= sc.next();
-					
-					If(vid == false){
 
-					System.out.println("Ingrese los datos del cliente ");	
+					if(clientes.existeCLiente(ID) == false){
 
-					System.out.println("Ingrese el nombre del cliente:  ");	
+						System.out.println("Ingrese los datos del cliente ");	
 
-					nombre = sc.next();
+						System.out.println("Ingrese el nombre del cliente:  ");	
 
-					
+						nombre = sc.next();
 
-					System.out.println("Ingrese la direccion del cliente:  ");
-					direccion = sc.next();
+						System.out.println("Ingrese la direccion del cliente:  ");
+						direccion = sc.next();
 
-					System.out.println("Ingrese el numero de tarjeta del cliente:  ");
-					tarjeta= sc.nextInt();	
-					
+						System.out.println("Ingrese el numero de tarjeta del cliente:  ");
+						tarjeta= sc.nextInt();	
+
+						clientes.ingresar(nombre, ID, direccion, tarjeta);
 					}else{
-						
-						
-						si existe el cliente
-						
+
+						System.out.println("El cliente ya existe!!");
 					}
 
 				}catch(Exception e){
@@ -194,21 +194,55 @@ public class Principal implements Serializable  {
 
 			case '5':
 
+				GenerarInformeFacturas("informe-facturas.txt");
+
+
+			case '6':
+
+				System.exit(0); 
+
+			}
+
+		case '3':
+
+			System.out.println("*****BIENVENIDO******");
+			System.out.println("1.GENERAR REPORTE CLIENTES");
+			System.out.println("2.GENERAR REPORTE EMPLEADOS");
+			System.out.println("3.GENERAR REPORTE PELICULAS");
+			System.out.println("4.SALIR");
+
+			char opcion3 = sc.next().charAt(0);
+
+			switch(opcion3){
+			
+			case '1':
+				clientes.GenerarInformeClientes("reporte-clientes.txt");
+				break;
+
+			case '2':
+				empleados.GenerarInformeEmpleados("reporte-empleados.txt");
+				break;
+
+			case '3':
+				peliculas.GenerarInformePeliculas("reporte-peliculas.txt");
+				break;
+			case '4':	
+
 				System.exit(0); 
 
 			}
 		}
 	}
 
-	public void GenerarInformeFacturas(String archivo) {
-		
+	public static void GenerarInformeFacturas(String archivo) {
+
 		PrintWriter pw = null;
 		FileWriter fichero2 = null;
-	
+
 		try{
 			fichero2 = new FileWriter(archivo, true);
 			pw = new PrintWriter (fichero2);
-			
+
 			for (Factura f : facturas) {
 				pw.println("***********************");
 				pw.println(f.getClass());
@@ -224,7 +258,7 @@ public class Principal implements Serializable  {
 				}
 				pw.println("TOTAL: " + f.getPrecioTotal()+ "dolares.");
 			}
-			}
+		}
 		catch(Exception e ){
 			e.printStackTrace();
 		}finally{
@@ -237,41 +271,51 @@ public class Principal implements Serializable  {
 		}
 	}
 
-	
-/*while(true){
-
-		menu_cliente();
-		System.out.println();
-		System.out.println();
-	}
- */
-
 
 private static void CrearFicheroInicial(String sFichero) {
 	// Lectura del archivo
 
 	// Creacion de las 4 salas
-	Sala sala = new Sala();
-	sala.setNumSala(1);
+	Sala sala1 = new Sala();
+	sala1.setNumSala(1);
+	Sala sala2 = new Sala();
+	sala2.setNumSala(2);
+	Sala sala3 = new Sala();
+	sala3.setNumSala(3);
+	Sala sala4 = new Sala();
+	sala4.setNumSala(4);
 
 	ListaAsientos asientosSala1 = new ListaAsientos();
 	asientosSala1.setColumnas(9);
 	asientosSala1.setFilas(12);
 
-	ListaFormatosSala formatos = new ListaFormatosSala(); 
+	ListaAsientos asientosSala2 = new ListaAsientos();
+	asientosSala2.setColumnas(8);
+	asientosSala2.setFilas(10);
+
+	ListaAsientos asientosSala3 = new ListaAsientos();
+	asientosSala3.setColumnas(5);
+	asientosSala3.setFilas(7);
+
 
 	Asiento asiento1 = new Asiento('h',3);
+    Asiento asiento2 = new Asiento('b',5);
+	Asiento asiento3 = new Asiento('d',1);
+	Asiento asiento4 = new Asiento('f',7);
 
-	if (!asientosSala1.AsignarAsiento(asiento1)) {
-		System.out.println("ya existe el asiento");
-	}
-
-	//asientosSala1.RemoverAsiento('h', 3);
-	sala.setAsientos(asientosSala1);
+	
 	FormatoSala formato = new FormatoSala();
-	sala.setFormato(formato);
 	formatos.AgregarFormato(formato);
+	FormatoSala formato1 = new FormatoSala("3D", 7.50);
+	formatos.AgregarFormato(formato1);
+	FormatoSala formato2 = new FormatoSala("IMAX", 9.25);
+	formatos.AgregarFormato(formato2);
+	
+	sala1.setAsientos(asientosSala1);
+	sala1.setFormato(formato);
 
+	
+	
 	Pelicula pelicula = new Pelicula();
 	pelicula.setNombre("TRANSFORMERS");
 
@@ -279,7 +323,7 @@ private static void CrearFicheroInicial(String sFichero) {
 
 	LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
 	LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
-	HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula, sala);
+	HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula, sala1);
 	horarios.AgregarHorario(horario1);
 
 	LocalDateTime inicio1 = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
@@ -290,9 +334,9 @@ private static void CrearFicheroInicial(String sFichero) {
 	LocalDateTime fin3 = LocalDateTime.of(2017, Month.AUGUST, 7, 11, 22, 10);
 
 
-	horarios.AgregarHorario(inicio1, fin1, pelicula, sala);
-	horarios.AgregarHorario(inicio2, fin2, pelicula, sala);
-	horarios.AgregarHorario(inicio3, fin3, pelicula, sala);
+	horarios.AgregarHorario(inicio1, fin1, pelicula, sala1);
+	horarios.AgregarHorario(inicio2, fin2, pelicula, sala2);
+	horarios.AgregarHorario(inicio3, fin3, pelicula, sala2);
 
 
 	horarios.ImprimirHorarioPelicula(pelicula, 2017, 8, 5); 
@@ -316,7 +360,7 @@ private static void CrearFicheroInicial(String sFichero) {
 
 	LineaFactura lineafactura = new LineaFactura();
 	lineafactura.setCantidad(3);
-	lineafactura.setPrecioUnitario(sala.getFormato().getPrecio(), cliente1.getTarjeta());
+	lineafactura.setPrecioUnitario(sala1.getFormato().getPrecio(), cliente1.getTarjeta());
 	lineafactura.setAsientos(asientosFactura);
 	lineafactura.setHorarioSala(horario1);
 
@@ -341,55 +385,55 @@ private static void CrearFicheroInicial(String sFichero) {
 
 }
 
-//	public void serializeAddress(Address address) {
-//
-//		FileOutputStream fout = null;
-//		ObjectOutputStream oos = null;
-//
-//		try {
-//
-//			fout = new FileOutputStream("c:\\temp\\address.ser");
-//			oos = new ObjectOutputStream(fout);
-//			oos.writeObject(address);
-//
-//			System.out.println("Done");
-//
-//		} catch (Exception ex) {
-//
-//			ex.printStackTrace();
-//
-//		} finally {
-//
-//			if (fout != null) {
-//				try {
-//					fout.close();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//
-//			if (oos != null) {
-//				try {
-//					oos.close();
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//
-//		}
-//	}
-//
-//	public void serializeAddressJDK7(Address address) {
-//
-//		try (ObjectOutputStream oos =
-//				new ObjectOutputStream(new FileOutputStream("c:\\temp\\address2.ser"))) {
-//
-//			oos.writeObject(address);
-//			System.out.println("Done");
-//
-//		} catch (Exception ex) {
-//			ex.printStackTrace();
-//		}
-//
-//	}	
+	//	public void serializeAddress(Address address) {
+	//
+	//		FileOutputStream fout = null;
+	//		ObjectOutputStream oos = null;
+	//
+	//		try {
+	//
+	//			fout = new FileOutputStream("c:\\temp\\address.ser");
+	//			oos = new ObjectOutputStream(fout);
+	//			oos.writeObject(address);
+	//
+	//			System.out.println("Done");
+	//
+	//		} catch (Exception ex) {
+	//
+	//			ex.printStackTrace();
+	//
+	//		} finally {
+	//
+	//			if (fout != null) {
+	//				try {
+	//					fout.close();
+	//				} catch (IOException e) {
+	//					e.printStackTrace();
+	//				}
+	//			}
+	//
+	//			if (oos != null) {
+	//				try {
+	//					oos.close();
+	//				} catch (IOException e) {
+	//					e.printStackTrace();
+	//				}
+	//			}
+	//
+	//		}
+	//	}
+	//
+	//	public void serializeAddressJDK7(Address address) {
+	//
+	//		try (ObjectOutputStream oos =
+	//				new ObjectOutputStream(new FileOutputStream("c:\\temp\\address2.ser"))) {
+	//
+	//			oos.writeObject(address);
+	//			System.out.println("Done");
+	//
+	//		} catch (Exception ex) {
+	//			ex.printStackTrace();
+	//		}
+	//
+	//	}	
 }
