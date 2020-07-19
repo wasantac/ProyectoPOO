@@ -1,13 +1,14 @@
-import java.io.Serializable;
+package Listas;
 import java.util.ArrayList;
+
+import Objetos.LineaFactura;
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase ListadoLineasFactura la cual crea objetos del tipo ListadoLineasFactura
  */
-public class ListadoLineasFactura implements Serializable {
+public class ListadoLineasFactura {
 
 	
-	private static final long serialVersionUID = 1L;
 	private ArrayList <LineaFactura> lineasFactura;
 	private double total;
 	

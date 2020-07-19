@@ -1,14 +1,17 @@
+package Listas;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import Objetos.Cliente;
 /**
  * @author NARVAEZ, RANGLES, SUAREZ
  * Clase Lista_CLientes la cual crea la lista de clientes
  */
-public class ListaClientes {
+public class ListaClientes implements impresion{
 
-	private static ArrayList<Cliente> lista_clientes= new ArrayList <Cliente>();
+	private ArrayList<Cliente> lista_clientes= new ArrayList <Cliente>();
 
 	public ListaClientes(){
 
@@ -75,10 +78,16 @@ public class ListaClientes {
 		}
 	}
 
-	public void ingresar(String vnombre, String vID, String vdir, int vtarjeta){
+	public void ingresar(Cliente c){
 
-		lista_clientes.add(new Cliente(vnombre, vID, vdir, vtarjeta));
+		lista_clientes.add(c);
 	}
+	
+	public void ingresar(ArrayList<Cliente> arr){
+
+		lista_clientes = arr;
+	}
+
 
 	public void eliminar(String vid){
 

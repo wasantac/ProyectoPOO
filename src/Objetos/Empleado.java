@@ -1,17 +1,15 @@
+package Objetos;
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Empleado la cual crea objetos del tipo Empleado.
  */
 
-import java.io.Serializable;
 
-public class Empleado implements Serializable {
+
+public class Empleado extends Persona {
    
-   	private static final long serialVersionUID = 1L;
+
 	private static double pagoPorHoraExtra; 
-    private final String ID;
-    private final String nombre;
-    private final String apellido;
     private String posicion;
     private double sueldoBase; 
     private int horasExtras;
@@ -19,33 +17,23 @@ public class Empleado implements Serializable {
     /**
      * Constructor por defecto.
      */
-    public Empleado(String nombre, String apellido, String ID){
-    	
-    	this.ID = ID;
-    	this.nombre = nombre;
-    	this.apellido = apellido;
+    public Empleado(String nombre,String apellido,String ID,String direccion){
+    	super(nombre,apellido,ID,direccion);
     	this.posicion = "vendedor";
         this.sueldoBase = 0;
         this.horasExtras = 0;
        	
     }
     
-     public Empleado(String iD, String nombre, String apellido, String posicion, double sueldoBase, int horasExtras) {
-    	 
-		this.ID = iD;
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.posicion = posicion;
+     public Empleado(String nombre,String apellido,String ID,String direccion, String posicion, double sueldoBase, int horasExtras) {
+    	 super(nombre,apellido,ID,direccion);
+    	 this.posicion = posicion;
 		this.sueldoBase = sueldoBase;
 		this.horasExtras = horasExtras;
 	}
      
-    public Empleado(String iD, String nombre, String apellido,String posicion){
-    	
-    	 
-		this.ID = iD;
-		this.nombre = nombre;
-		this.apellido = apellido;
+    public Empleado(String nombre,String apellido,String ID,String direccion,String posicion){
+    	super(nombre,apellido,ID,direccion); 
 		this.posicion = posicion;
      }
 
@@ -59,9 +47,6 @@ public class Empleado implements Serializable {
         return horasExtras;
     }
 
-    public String getApellido() {
-		return apellido;
-	}
 
 	public String getPosicion() {
 		return posicion;
@@ -73,14 +58,6 @@ public class Empleado implements Serializable {
 
 	public void setHorasExtras(int horasExtras) {
         this.horasExtras = horasExtras;
-    }
-
-    public String getID() {
-        return ID;
-    }
-
-     public String getNombre() {
-        return nombre;
     }
 
      public double getSueldoBase() {
@@ -133,7 +110,7 @@ public class Empleado implements Serializable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nID: ");
-        sb.append(ID);
+        sb.append(this.getID());
         sb.append("\nPosicion: ");
         sb.append(posicion);
         sb.append("\nSueldo Base: ");

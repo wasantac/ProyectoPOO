@@ -1,11 +1,11 @@
-import java.io.Serializable;
+package Objetos;
 import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.ArrayList;
 
-public class Factura implements Serializable {
+import Listas.ListadoLineasFactura;
 
-	private static final long serialVersionUID = 1L;
+
+public class Factura {
+
 	private Cliente cliente;
 	private Empleado vendedor;
 	private LocalDateTime fecha; 
@@ -15,10 +15,10 @@ public class Factura implements Serializable {
 	/**
 	 * Constructor por defecto 
 	 */
-	public Factura() {
+	public Factura(Empleado emp) {
 		
-		this.cliente = new Cliente("","");
-		this.vendedor = new Empleado("","","");
+		this.cliente = new Cliente();
+		this.vendedor = emp;
 		this.fecha = LocalDateTime.now(); 
 		this.precioTotal = 0.0;
 		this.listadolineasfactura = new ListadoLineasFactura();

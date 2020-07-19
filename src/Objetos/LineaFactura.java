@@ -1,4 +1,4 @@
-import java.io.Serializable;
+package Objetos;
 import java.util.ArrayList;
 
 /**
@@ -6,10 +6,9 @@ import java.util.ArrayList;
  * Clase LineaFactura la cual crea objetos del tipo LineaFactura.
  */
 
-public class LineaFactura implements Serializable {
+public class LineaFactura {
 
 
-	private static final long serialVersionUID = 1L;
 	private double cantidad;
 	//private Pelicula pelicula;
 	private ArrayList<Asiento> asientos;

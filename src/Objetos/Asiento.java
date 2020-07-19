@@ -1,13 +1,12 @@
-import java.io.Serializable;
+package Objetos;
 
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Asiento la cual crea objetos del tipo Asiento.
  */
-public class Asiento implements Serializable {
+public class Asiento {
 
-	private static final long serialVersionUID = 1L;	
 	private char fila;
 	private int numero;
 

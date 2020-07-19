@@ -6,33 +6,56 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import Listas.ListaAsientos;
+import Listas.ListaClientes;
+import Listas.ListaEmpleados;
+import Listas.ListaFormatosSala;
+import Listas.ListaPeliculas;
+import Listas.ListadoHorarioSala;
+import Listas.ListadoLineasFactura;
+import Objetos.Asiento;
+import Objetos.Cine;
+import Objetos.Cliente;
+import Objetos.Empleado;
+import Objetos.Factura;
+import Objetos.FormatoSala;
+import Objetos.HorarioSala;
+import Objetos.LineaFactura;
+import Objetos.Pelicula;
+import Objetos.Sala;
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase Principal del sistema.
  */
-public class Principal implements Serializable  {
-
+public class Principal  {
+	/**
+	 * Interface: implementa serializable a todas las clases y no lo utiliza
+Open close: Reptie muchos datos los cuales pueden estar en una clase padre
+Single responsibility: Exisiten clases que tienen métodos para cambiar otros datos
+Single responsibility: Se asignan a las listas que hagan funciones que haria el cine
+Interface: Se puede implementar una interfaz impersion ya que exiten metodos iguales en alguna de las listas
+	 */
+	static Cine c;
 	static Scanner sc = new Scanner(System.in);
-	private static final long serialVersionUID = 1L;
-	static ArrayList<Sala> salas = new ArrayList<Sala>();
 	static ArrayList<Factura> facturas = new ArrayList<Factura>();
-	static ListaPeliculas peliculas = new ListaPeliculas();
 	static ListadoHorarioSala horarios = new ListadoHorarioSala();
 	static ListaFormatosSala formatos = new ListaFormatosSala();
-	static ListaClientes clientes = new ListaClientes();	
-	static ListaEmpleados empleados = new ListaEmpleados();	
+	static ListaClientes clientes = new ListaClientes();
+	static ListaEmpleados empleados = new ListaEmpleados();
 
 	public static void main(String[] args) throws Exception {
 
 		File fichero = new File("data.txt");
 
 		if (!fichero.exists()) {
-			CrearFicheroInicial("data.txt");	
+			c = CrearFicheroInicial("data.txt");	
 		}
 		//else {
 		//	leerFicheroInicial(sFichero);
 		//}
-
+		clientes.ingresar(c.getLista_clientes());
+		empleados.ingresar(c.getLista_empleados());
 		System.out.println("*****BIENVENIDO******");
 		System.out.println("1.CLIENTE");
 		System.out.println("2.VENDEDOR");
@@ -56,7 +79,7 @@ public class Principal implements Serializable  {
 
 			case '1':
 
-				peliculas.Cartelera();
+				c.Cartelera();
 				break;
 
 			case '2':
@@ -67,16 +90,16 @@ public class Principal implements Serializable  {
 					int horario;
 					String butaca;
 
-					peliculas.Cartelera();
+					c.Cartelera();
 					System.out.println("Escoger pelicula: ");			
 					pelicula = sc.nextInt();
 
-					peliculas.obtenerPelicula(pelicula);
+					c.getPeliculas().obtenerPelicula(pelicula);
 
 					System.out.println("Seleccione el horario: ");
 
 
-					horarios.ImprimirHorarioPelicula(peliculas.obtenerPelicula(pelicula), LocalDateTime.now().getYear(), LocalDateTime.now().getMonth().getValue(), LocalDateTime.now().getDayOfMonth());	
+					horarios.ImprimirHorarioPelicula(c.getPeliculas().obtenerPelicula(pelicula), LocalDateTime.now().getYear(), LocalDateTime.now().getMonth().getValue(), LocalDateTime.now().getDayOfMonth());	
 
 					horario = sc.nextInt();
 
@@ -149,6 +172,7 @@ public class Principal implements Serializable  {
 
 					String ID;
 					String nombre;
+					String apellido;
 					String direccion;
 					int tarjeta;
 
@@ -162,14 +186,17 @@ public class Principal implements Serializable  {
 						System.out.println("Ingrese el nombre del cliente:  ");	
 
 						nombre = sc.next();
+						System.out.println("Ingrese el nombre del cliente:  ");	
 
+						apellido = sc.next();
+						
 						System.out.println("Ingrese la direccion del cliente:  ");
 						direccion = sc.next();
 
 						System.out.println("Ingrese el numero de tarjeta del cliente:  ");
 						tarjeta= sc.nextInt();	
-
-						clientes.ingresar(nombre, ID, direccion, tarjeta);
+						Cliente c = new Cliente(nombre,apellido,ID, direccion, tarjeta);
+						clientes.ingresar(c);
 					}else{
 
 						System.out.println("El cliente ya existe!!");
@@ -218,7 +245,7 @@ public class Principal implements Serializable  {
 				break;
 
 			case '3':
-				peliculas.GenerarInformePeliculas("reporte-peliculas.txt");
+				c.getPeliculas().GenerarInformePeliculas("reporte-peliculas.txt");
 				break;
 			case '4':	
 
@@ -266,10 +293,11 @@ public class Principal implements Serializable  {
 	}
 
 
-	private static void CrearFicheroInicial(String sFichero) {
+	private static Cine CrearFicheroInicial(String sFichero) {
 		// Lectura del archivo
 
 		// Creacion de las 4 salas
+		Cine cine = new Cine();
 		Sala sala1 = new Sala();
 		sala1.setNumSala(1);
 		Sala sala2 = new Sala();
@@ -278,46 +306,45 @@ public class Principal implements Serializable  {
 		sala3.setNumSala(3);
 		Sala sala4 = new Sala();
 		sala4.setNumSala(4);
-
-		ListaAsientos asientosSala1 = new ListaAsientos();
-		asientosSala1.setColumnas(9);
-		asientosSala1.setFilas(12);
-
-		ListaAsientos asientosSala2 = new ListaAsientos();
-		asientosSala2.setColumnas(8);
-		asientosSala2.setFilas(10);
-
-		ListaAsientos asientosSala3 = new ListaAsientos();
-		asientosSala3.setColumnas(5);
-		asientosSala3.setFilas(7);
-
-
-		Asiento asiento1 = new Asiento('h',3);
-	    Asiento asiento2 = new Asiento('b',5);
-		Asiento asiento3 = new Asiento('d',1);
-		Asiento asiento4 = new Asiento('f',7);
-
-		
 		FormatoSala formato = new FormatoSala();
 		formatos.AgregarFormato(formato);
 		FormatoSala formato1 = new FormatoSala("3D", 7.50);
 		formatos.AgregarFormato(formato1);
 		FormatoSala formato2 = new FormatoSala("IMAX", 9.25);
 		formatos.AgregarFormato(formato2);
-		
-		sala1.setAsientos(asientosSala1);
 		sala1.setFormato(formato);
+
+
+		sala1.getAsientos().setColumnas(9);
+		sala1.getAsientos().setFilas(12);
+
+		sala2.getAsientos().setColumnas(8);
+		sala2.getAsientos().setFilas(10);
+
+		sala3.getAsientos().setColumnas(5);
+		sala3.getAsientos().setFilas(7);
+
+		Asiento asiento1 = new Asiento('h',3);
+	    Asiento asiento2 = new Asiento('b',5);
+		Asiento asiento3 = new Asiento('d',1);
+		Asiento asiento4 = new Asiento('f',7);
+
 
 		Pelicula pelicula1 = new Pelicula("TRANSFORMERS", 120, "Ingles", "12");
 		Pelicula pelicula2 = new Pelicula("AVENGERS", 180, "Espanol", "Todo Publico");
 		Pelicula pelicula3 = new Pelicula("IRON MAN 3", 190, "Ingles", "Todo Publico");
 		Pelicula pelicula4 = new Pelicula("MI NOVIA POLY", 160, "Ingles", "12");
-		
-		peliculas.ingresarpelicula(pelicula1);	
-		peliculas.ingresarpelicula(pelicula2);	
-		peliculas.ingresarpelicula(pelicula3);	
-		peliculas.ingresarpelicula(pelicula4);	
 
+		cine.getSalas().add(sala1);
+		cine.getSalas().add(sala2);
+		cine.getSalas().add(sala3);
+		cine.getSalas().add(sala4);
+		cine.getPeliculas().ingresarpelicula(pelicula1);
+		cine.getPeliculas().ingresarpelicula(pelicula2);
+		cine.getPeliculas().ingresarpelicula(pelicula3);
+		cine.getPeliculas().ingresarpelicula(pelicula4);
+		
+		
 		LocalDateTime inicio = LocalDateTime.of(2017, Month.AUGUST, 5, 9, 10, 0);
 		LocalDateTime fin = LocalDateTime.of(2017, Month.AUGUST, 5, 11, 00, 0);
 		HorarioSala horario1 = new HorarioSala(inicio, fin, pelicula1, sala1);
@@ -335,19 +362,13 @@ public class Principal implements Serializable  {
 		horarios.AgregarHorario(inicio3, fin3, pelicula2, sala1);
 
 
-		//horarios.ImprimirHorarioPelicula(pelicula1, 2017, 8, 5); 
-		//horarios.ImprimirHorarioPelicula(pelicula1, 2017, 8, 6);
-		//horarios.ImprimirHorarioPelicula(pelicula2, 2017, 8, 7);
-		//horarios.ImprimirHorarioPelicula(pelicula3, 2017, 8, 8);
 
-
-		Empleado vendedor1 = new Empleado("Patricio","Rangles","1717104127");
+		Empleado vendedor1 = new Empleado("Patricio","Rangles","1717104127","xxxx");
 		vendedor1.setPosicion("Vendedor");
 
-		Cliente cliente1 = new Cliente("Luchito Cifuentes","1823632929");
-		cliente1.setTarjeta(1);
+		Cliente cliente1 = new Cliente("Luchito"," Cifuentes","1823632929","xxxx",1);
 
-		Factura factura = new Factura();
+		Factura factura = new Factura(vendedor1);
 		factura.setCliente(cliente1);
 		factura.setFecha(LocalDateTime.of(2017, Month.AUGUST, 5, 07, 33, 30));
 
@@ -361,75 +382,8 @@ public class Principal implements Serializable  {
 		lineafactura.setHorarioSala(horario1);
 
 		factura.AgregarLineaFactura(lineafactura);
-
-		///////////////////////////////////////////////////////////////////////////////
-		//pruebas clientes
-		//peliculas.Cartelera();
-		//formatos.ObtenerPrecio(cliente1.getTarjeta(), "2D");
-		// desde escoger pelicula hasta comprar boleto se hace con los objetos existentes con el ejemplo anterior
-
-
-
-		//// Escritura del archivo
-		//FileManager.WriteObject obj = new WriteObject();
-
-		//Address address = new Address();
-		//address.setStreet("wall street");
-		//address.setCountry("united state");
-
-		//obj.serializeAddress(address);
-
+		return cine;
+		
 	}
 
-	//	public void serializeAddress(Address address) {
-	//
-	//		FileOutputStream fout = null;
-	//		ObjectOutputStream oos = null;
-	//
-	//		try {
-	//
-	//			fout = new FileOutputStream("c:\\temp\\address.ser");
-	//			oos = new ObjectOutputStream(fout);
-	//			oos.writeObject(address);
-	//
-	//			System.out.println("Done");
-	//
-	//		} catch (Exception ex) {
-	//
-	//			ex.printStackTrace();
-	//
-	//		} finally {
-	//
-	//			if (fout != null) {
-	//				try {
-	//					fout.close();
-	//				} catch (IOException e) {
-	//					e.printStackTrace();
-	//				}
-	//			}
-	//
-	//			if (oos != null) {
-	//				try {
-	//					oos.close();
-	//				} catch (IOException e) {
-	//					e.printStackTrace();
-	//				}
-	//			}
-	//
-	//		}
-	//	}
-	//
-	//	public void serializeAddressJDK7(Address address) {
-	//
-	//		try (ObjectOutputStream oos =
-	//				new ObjectOutputStream(new FileOutputStream("c:\\temp\\address2.ser"))) {
-	//
-	//			oos.writeObject(address);
-	//			System.out.println("Done");
-	//
-	//		} catch (Exception ex) {
-	//			ex.printStackTrace();
-	//		}
-	//
-	//	}	
 }

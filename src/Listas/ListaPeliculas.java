@@ -1,18 +1,19 @@
+package Listas;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import java.util.ArrayList;
+
+import Objetos.Pelicula;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase ListaPelicula la cual crea lista de peliculas.
  */
-public class ListaPeliculas implements Serializable {
+public class ListaPeliculas  {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
 	private ArrayList<Pelicula> listaPeliculas;
 
 	/**
@@ -43,16 +44,7 @@ public class ListaPeliculas implements Serializable {
 	/**
 	 * Muestra la cartelera de peliculas
 	 */
-	public void Cartelera(){
-		
-		int i=1;
-		
-		for(Pelicula vpelicula:listaPeliculas){
-			System.out.println(Integer.toString(i) + ") "+ vpelicula+"\n");
-			i++;
-			
-		}
-	}
+
 
 	public void GenerarInformePeliculas(String archivo) {
 
@@ -78,5 +70,14 @@ public class ListaPeliculas implements Serializable {
 		}
 		
 	}
+
+	public ArrayList<Pelicula> getListaPeliculas() {
+		return listaPeliculas;
+	}
+
+	public void setListaPeliculas(ArrayList<Pelicula> listaPeliculas) {
+		this.listaPeliculas = listaPeliculas;
+	}
+	
 
 }

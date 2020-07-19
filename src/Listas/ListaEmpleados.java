@@ -1,16 +1,19 @@
+package Listas;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import Objetos.Empleado;
 /**
  * @author NARVAEZ, RANGLES, SUAREZ
  * Clase ListaEmpleados la cual crea la lista de empleados
  */
-public class ListaEmpleados {
+public class ListaEmpleados implements impresion {
 
 
 
-	private static ArrayList<Empleado> lista_empleados= new ArrayList <Empleado>();
+	private ArrayList<Empleado> lista_empleados= new ArrayList <Empleado>();
 
 	public ListaEmpleados(){
 
@@ -99,6 +102,10 @@ public class ListaEmpleados {
 	public void ingresar(String vID, String vnombre, String vapellido,String vposicion){
 
 		lista_empleados.add(new Empleado(vID, vnombre, vapellido, vposicion));
+	}
+	public void ingresar(ArrayList<Empleado> emp){
+
+		lista_empleados = emp;
 	}
 
 	public void eliminar(String vid){

@@ -1,14 +1,15 @@
-import java.io.Serializable;
+package Listas;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import Objetos.Asiento;
 
 /**
  * @author ANAHI NARVAEZ, RICARDO RANGLES, RODRIGO SUAREZ
  * Clase ListaAsientos la cual crea lista de asientos.
  */
-public class ListaAsientos implements Serializable {
+public class ListaAsientos implements impresion{
 
-	private static final long serialVersionUID = 1L;
 	private ArrayList<Asiento> listaAsientos;
 	private int total;
 	private int disponibles;
